@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"============ view did load @ BUCKET ============");
+    NSLog(@"//========== view did load @ BUCKET ");
     [super viewDidLoad];
     //self.title = @"Buckets";
 
@@ -43,7 +43,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"============ view did appear @ BUCKET ============");
+    NSLog(@"//========== view did appear @ BUCKET");
     [super viewDidAppear:animated];
     [KSCardProxy delegate: self];
     [KSCardProxy queryBuckets];

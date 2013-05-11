@@ -187,7 +187,7 @@ didReceiveResponse: (NSHTTPURLResponse *) response {
 }
 
 + (void) connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"receive done ==============================");
+    NSLog(@"\\\\========== receive done");
     //[KSCardProxy endTask: backgroundTaskId];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:resultData
                                                           options:NSJSONReadingMutableContainers
