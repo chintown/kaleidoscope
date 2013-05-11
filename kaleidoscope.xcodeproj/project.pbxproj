@@ -14,6 +14,8 @@
 		84062DBD173EA199002DF3BD /* item-horn.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DB9173EA199002DF3BD /* item-horn.png */; };
 		84062DBE173EA199002DF3BD /* item-horn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DBA173EA199002DF3BD /* item-horn@2x.png */; };
 		84062DC0173EA1A1002DF3BD /* bg-paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DBF173EA1A1002DF3BD /* bg-paper.png */; };
+		84062DC3173EA265002DF3BD /* KSLookupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84062DC2173EA265002DF3BD /* KSLookupViewController.m */; };
+		84062DC6173EA29F002DF3BD /* KSConf.m in Sources */ = {isa = PBXBuildFile; fileRef = 84062DC5173EA29F002DF3BD /* KSConf.m */; };
 		844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB252173E9D000044AB44 /* UIKit.framework */; };
 		844DB255173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB257173E9D000044AB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB256173E9D000044AB44 /* CoreGraphics.framework */; };
@@ -49,6 +51,10 @@
 		84062DB9173EA199002DF3BD /* item-horn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "item-horn.png"; path = "images/item-horn.png"; sourceTree = "<group>"; };
 		84062DBA173EA199002DF3BD /* item-horn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "item-horn@2x.png"; path = "images/item-horn@2x.png"; sourceTree = "<group>"; };
 		84062DBF173EA1A1002DF3BD /* bg-paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-paper.png"; path = "images/bg-paper.png"; sourceTree = "<group>"; };
+		84062DC1173EA265002DF3BD /* KSLookupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLookupViewController.h; sourceTree = "<group>"; };
+		84062DC2173EA265002DF3BD /* KSLookupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSLookupViewController.m; sourceTree = "<group>"; };
+		84062DC4173EA29F002DF3BD /* KSConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSConf.h; sourceTree = "<group>"; };
+		84062DC5173EA29F002DF3BD /* KSConf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSConf.m; sourceTree = "<group>"; };
 		844DB24F173E9D000044AB44 /* kaleidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaleidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844DB252173E9D000044AB44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		844DB254173E9D000044AB44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -212,6 +218,8 @@
 		84653E39173E9E3A001939AB /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				84062DC4173EA29F002DF3BD /* KSConf.h */,
+				84062DC5173EA29F002DF3BD /* KSConf.m */,
 			);
 			name = Configs;
 			sourceTree = "<group>";
@@ -226,6 +234,8 @@
 		84653E3B173E9E56001939AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84062DC1173EA265002DF3BD /* KSLookupViewController.h */,
+				84062DC2173EA265002DF3BD /* KSLookupViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -380,6 +390,8 @@
 			files = (
 				844DB25F173E9D000044AB44 /* main.m in Sources */,
 				844DB263173E9D000044AB44 /* KSAppDelegate.m in Sources */,
+				84062DC3173EA265002DF3BD /* KSLookupViewController.m in Sources */,
+				84062DC6173EA29F002DF3BD /* KSConf.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

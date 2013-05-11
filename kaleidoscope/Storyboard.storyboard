@@ -1,9 +1,199 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zSI-ba-Lya">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Lookup View Controller - Look Up-->
+        <scene sceneID="Eb8-CS-i6Q">
+            <objects>
+                <viewController id="lEv-OE-PGz" customClass="KSLookupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JN9-T3-iE3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" barStyle="blackOpaque" placeholder="lookup some word?" showsBookmarkButton="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vu8-E0-Gnd">
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="alphabet"/>
+                            </searchBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="073-JY-aqS">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="yjO-LP-4Xb">
+                                <items/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="073-JY-aqS" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" type="default" id="Aak-Ib-3Au"/>
+                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" type="default" id="Jlb-BO-Yb5"/>
+                            <constraint firstItem="073-JY-aqS" firstAttribute="bottom" secondItem="JN9-T3-iE3" secondAttribute="bottom" type="default" id="QV8-Or-5VL"/>
+                            <constraint firstItem="073-JY-aqS" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" type="default" id="SmI-sO-irx"/>
+                            <constraint firstItem="073-JY-aqS" firstAttribute="top" secondItem="vu8-E0-Gnd" secondAttribute="bottom" type="default" id="SpP-6M-OYh"/>
+                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="bottom" secondItem="JN9-T3-iE3" secondAttribute="bottom" type="default" id="eN0-j8-RON"/>
+                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" type="default" id="hAV-Me-HlA"/>
+                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="top" secondItem="JN9-T3-iE3" secondAttribute="top" type="default" id="oG7-tK-FVX"/>
+                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" type="default" id="s1h-iu-npe"/>
+                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" type="default" id="sxe-GV-9b4"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Look Up" image="icon-search.png" id="mPg-mI-R8f"/>
+                    <connections>
+                        <outlet property="searchBar" destination="vu8-E0-Gnd" id="d43-7Z-gqf"/>
+                        <outlet property="searchDisplayController" destination="5Qa-Ud-ewo" id="rkx-tX-qWT"/>
+                        <outlet property="sitesbar" destination="yjO-LP-4Xb" id="DXQ-2x-JCS"/>
+                        <outlet property="webView" destination="073-JY-aqS" id="N2o-fJ-UXW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9W-QU-ncV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="5Qa-Ud-ewo">
+                    <connections>
+                        <outlet property="delegate" destination="lEv-OE-PGz" id="sBQ-LR-SrV"/>
+                        <outlet property="searchContentsController" destination="lEv-OE-PGz" id="c8i-Bl-MFM"/>
+                        <outlet property="searchResultsDataSource" destination="lEv-OE-PGz" id="dwG-bF-6hN"/>
+                        <outlet property="searchResultsDelegate" destination="lEv-OE-PGz" id="BjP-IY-fUa"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-4" y="-799"/>
+        </scene>
+        <!--Buckets View Controller - Look Down-->
+        <scene sceneID="tCD-nw-zl7">
+            <objects>
+                <tableViewController id="pBg-Ow-3c0" customClass="KSBucketsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K6K-HH-x2A">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bucket cell" textLabel="lYZ-OM-ZLZ" detailTextLabel="XC1-x1-Aps" style="IBUITableViewCellStyleValue1" id="t0f-Lv-ua0">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lYZ-OM-ZLZ">
+                                            <rect key="frame" x="10" y="11" width="52" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XC1-x1-Aps">
+                                            <rect key="frame" x="259" y="11" width="31" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="1KS-ud-O3G" kind="push" id="km2-IY-JEb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pBg-Ow-3c0" id="A53-mv-OLD"/>
+                            <outlet property="delegate" destination="pBg-Ow-3c0" id="Mqb-Id-FnD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Look Down" id="vJM-5O-NKG"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OaD-Cq-48n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11" y="-1527"/>
+        </scene>
+        <!--Card Stack View Controller-->
+        <scene sceneID="GJ0-GN-bB5">
+            <objects>
+                <viewController id="1KS-ud-O3G" customClass="KSCardStackViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RaC-Ca-h4t">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2CR-iZ-V0W" customClass="CTPagedScrollView"/>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="leading" secondItem="RaC-Ca-h4t" secondAttribute="leading" type="default" id="AEj-a3-Ofu"/>
+                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="top" secondItem="RaC-Ca-h4t" secondAttribute="top" constant="20" symbolic="YES" type="default" id="DDg-eO-zqR"/>
+                            <constraint firstAttribute="bottom" secondItem="2CR-iZ-V0W" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="b7X-zK-XFi"/>
+                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="trailing" secondItem="RaC-Ca-h4t" secondAttribute="trailing" type="default" id="hgb-Vx-uCL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NDP-dl-HGb">
+                        <barButtonItem key="rightBarButtonItem" image="item-horn" id="FDm-zz-gHr">
+                            <connections>
+                                <action selector="playPronounce:" destination="1KS-ud-O3G" id="Li6-Nx-RCQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pronounce" destination="FDm-zz-gHr" id="8Bv-6s-Rpm"/>
+                        <outlet property="scrollView" destination="2CR-iZ-V0W" id="qbp-Fg-FUQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="joF-UC-wQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365" y="-1527"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="JEZ-EX-Ttu">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="zSI-ba-Lya" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="2WX-oW-3Jh">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="CLe-bS-4io" kind="relationship" relationship="viewControllers" id="GQM-65-UlX"/>
+                        <segue destination="lEv-OE-PGz" kind="relationship" relationship="viewControllers" id="sFa-RP-4QA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mvt-pY-FQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-720" y="-1527"/>
+        </scene>
+        <!--Navigation Controller - Look Down-->
+        <scene sceneID="c9C-3y-MtO">
+            <objects>
+                <navigationController id="CLe-bS-4io" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Look Down" image="icon-inbox.png" id="S3L-Xk-aAC"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="DrS-r9-Lpb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="c4D-D7-eMc">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="pBg-Ow-3c0" kind="relationship" relationship="rootViewController" id="FU8-yr-1BV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v6X-zM-Hwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-365" y="-2390"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-inbox.png" width="30" height="30"/>
+        <image name="icon-search.png" width="30" height="30"/>
+        <image name="item-horn" width="16" height="16"/>
+    </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
