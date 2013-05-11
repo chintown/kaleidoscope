@@ -24,6 +24,11 @@
 		843974F7173EA6B4008D6D85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843974F6173EA6B4008D6D85 /* QuartzCore.framework */; };
 		843974F9173EA6BB008D6D85 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843974F8173EA6BB008D6D85 /* AVFoundation.framework */; };
 		843974FC173EAB3F008D6D85 /* CTPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843974FB173EAB3F008D6D85 /* CTPagedScrollView.m */; };
+		84397501173EAC1B008D6D85 /* KSSlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84397500173EAC1B008D6D85 /* KSSlotViewController.m */; };
+		84397504173EAC3F008D6D85 /* KSCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84397503173EAC3F008D6D85 /* KSCardViewController.m */; };
+		84397506173EAC5D008D6D85 /* KSCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84397505173EAC5D008D6D85 /* KSCardViewController.xib */; };
+		8439750A173EAC7B008D6D85 /* KSDetailVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */; };
+		8439750B173EAC7B008D6D85 /* KSCardbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84397509173EAC7B008D6D85 /* KSCardbackViewController.xib */; };
 		844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB252173E9D000044AB44 /* UIKit.framework */; };
 		844DB255173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB257173E9D000044AB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB256173E9D000044AB44 /* CoreGraphics.framework */; };
@@ -77,6 +82,14 @@
 		843974F8173EA6BB008D6D85 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		843974FA173EAB3F008D6D85 /* CTPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPagedScrollView.h; sourceTree = "<group>"; };
 		843974FB173EAB3F008D6D85 /* CTPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPagedScrollView.m; sourceTree = "<group>"; };
+		843974FF173EAC1B008D6D85 /* KSSlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSlotViewController.h; sourceTree = "<group>"; };
+		84397500173EAC1B008D6D85 /* KSSlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSlotViewController.m; sourceTree = "<group>"; };
+		84397502173EAC3F008D6D85 /* KSCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCardViewController.h; sourceTree = "<group>"; };
+		84397503173EAC3F008D6D85 /* KSCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCardViewController.m; sourceTree = "<group>"; };
+		84397505173EAC5D008D6D85 /* KSCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSCardViewController.xib; sourceTree = "<group>"; };
+		84397507173EAC7B008D6D85 /* KSDetailVeiwController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDetailVeiwController.h; sourceTree = "<group>"; };
+		84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDetailVeiwController.m; sourceTree = "<group>"; };
+		84397509173EAC7B008D6D85 /* KSCardbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSCardbackViewController.xib; sourceTree = "<group>"; };
 		844DB24F173E9D000044AB44 /* kaleidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaleidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844DB252173E9D000044AB44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		844DB254173E9D000044AB44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -149,6 +162,32 @@
 				84062DD3173EA5A9002DF3BD /* KSCard.m */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		843974FD173EABFA008D6D85 /* Lookup */ = {
+			isa = PBXGroup;
+			children = (
+				84062DC1173EA265002DF3BD /* KSLookupViewController.h */,
+				84062DC2173EA265002DF3BD /* KSLookupViewController.m */,
+			);
+			name = Lookup;
+			sourceTree = "<group>";
+		};
+		843974FE173EAC04008D6D85 /* Lookdown */ = {
+			isa = PBXGroup;
+			children = (
+				84397505173EAC5D008D6D85 /* KSCardViewController.xib */,
+				84062DCA173EA544002DF3BD /* KSBucketsViewController.h */,
+				84062DCB173EA544002DF3BD /* KSBucketsViewController.m */,
+				843974FF173EAC1B008D6D85 /* KSSlotViewController.h */,
+				84397500173EAC1B008D6D85 /* KSSlotViewController.m */,
+				84397502173EAC3F008D6D85 /* KSCardViewController.h */,
+				84397503173EAC3F008D6D85 /* KSCardViewController.m */,
+				84397507173EAC7B008D6D85 /* KSDetailVeiwController.h */,
+				84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */,
+				84397509173EAC7B008D6D85 /* KSCardbackViewController.xib */,
+			);
+			name = Lookdown;
 			sourceTree = "<group>";
 		};
 		844DB246173E9D000044AB44 = {
@@ -286,10 +325,8 @@
 		84653E3B173E9E56001939AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				84062DCA173EA544002DF3BD /* KSBucketsViewController.h */,
-				84062DCB173EA544002DF3BD /* KSBucketsViewController.m */,
-				84062DC1173EA265002DF3BD /* KSLookupViewController.h */,
-				84062DC2173EA265002DF3BD /* KSLookupViewController.m */,
+				843974FE173EAC04008D6D85 /* Lookdown */,
+				843974FD173EABFA008D6D85 /* Lookup */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -380,6 +417,8 @@
 				84062DBD173EA199002DF3BD /* item-horn.png in Resources */,
 				84062DBE173EA199002DF3BD /* item-horn@2x.png in Resources */,
 				84062DC0173EA1A1002DF3BD /* bg-paper.png in Resources */,
+				84397506173EAC5D008D6D85 /* KSCardViewController.xib in Resources */,
+				8439750B173EAC7B008D6D85 /* KSCardbackViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +491,9 @@
 				84062DD4173EA5A9002DF3BD /* KSCard.m in Sources */,
 				843974F5173EA67F008D6D85 /* KSCardProxy.m in Sources */,
 				843974FC173EAB3F008D6D85 /* CTPagedScrollView.m in Sources */,
+				84397501173EAC1B008D6D85 /* KSSlotViewController.m in Sources */,
+				84397504173EAC3F008D6D85 /* KSCardViewController.m in Sources */,
+				8439750A173EAC7B008D6D85 /* KSDetailVeiwController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

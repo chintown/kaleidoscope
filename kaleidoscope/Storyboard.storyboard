@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="-11" y="-1527"/>
         </scene>
-        <!--Card Stack View Controller-->
+        <!--Slot View Controller-->
         <scene sceneID="GJ0-GN-bB5">
             <objects>
-                <viewController id="1KS-ud-O3G" customClass="KSCardStackViewController" sceneMemberID="viewController">
+                <viewController id="1KS-ud-O3G" customClass="KSSlotViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RaC-Ca-h4t">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
