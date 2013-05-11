@@ -28,7 +28,7 @@
 		84397504173EAC3F008D6D85 /* KSCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84397503173EAC3F008D6D85 /* KSCardViewController.m */; };
 		84397506173EAC5D008D6D85 /* KSCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84397505173EAC5D008D6D85 /* KSCardViewController.xib */; };
 		8439750A173EAC7B008D6D85 /* KSDetailVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */; };
-		8439750B173EAC7B008D6D85 /* KSCardbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84397509173EAC7B008D6D85 /* KSCardbackViewController.xib */; };
+		8439750B173EAC7B008D6D85 /* KSDetailVeiwController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84397509173EAC7B008D6D85 /* KSDetailVeiwController.xib */; };
 		844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB252173E9D000044AB44 /* UIKit.framework */; };
 		844DB255173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB257173E9D000044AB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB256173E9D000044AB44 /* CoreGraphics.framework */; };
@@ -89,7 +89,7 @@
 		84397505173EAC5D008D6D85 /* KSCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSCardViewController.xib; sourceTree = "<group>"; };
 		84397507173EAC7B008D6D85 /* KSDetailVeiwController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDetailVeiwController.h; sourceTree = "<group>"; };
 		84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDetailVeiwController.m; sourceTree = "<group>"; };
-		84397509173EAC7B008D6D85 /* KSCardbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSCardbackViewController.xib; sourceTree = "<group>"; };
+		84397509173EAC7B008D6D85 /* KSDetailVeiwController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSDetailVeiwController.xib; sourceTree = "<group>"; };
 		844DB24F173E9D000044AB44 /* kaleidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaleidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844DB252173E9D000044AB44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		844DB254173E9D000044AB44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -176,16 +176,16 @@
 		843974FE173EAC04008D6D85 /* Lookdown */ = {
 			isa = PBXGroup;
 			children = (
-				84397505173EAC5D008D6D85 /* KSCardViewController.xib */,
 				84062DCA173EA544002DF3BD /* KSBucketsViewController.h */,
 				84062DCB173EA544002DF3BD /* KSBucketsViewController.m */,
 				843974FF173EAC1B008D6D85 /* KSSlotViewController.h */,
 				84397500173EAC1B008D6D85 /* KSSlotViewController.m */,
 				84397502173EAC3F008D6D85 /* KSCardViewController.h */,
 				84397503173EAC3F008D6D85 /* KSCardViewController.m */,
+				84397505173EAC5D008D6D85 /* KSCardViewController.xib */,
 				84397507173EAC7B008D6D85 /* KSDetailVeiwController.h */,
 				84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */,
-				84397509173EAC7B008D6D85 /* KSCardbackViewController.xib */,
+				84397509173EAC7B008D6D85 /* KSDetailVeiwController.xib */,
 			);
 			name = Lookdown;
 			sourceTree = "<group>";
@@ -418,7 +418,7 @@
 				84062DBE173EA199002DF3BD /* item-horn@2x.png in Resources */,
 				84062DC0173EA1A1002DF3BD /* bg-paper.png in Resources */,
 				84397506173EAC5D008D6D85 /* KSCardViewController.xib in Resources */,
-				8439750B173EAC7B008D6D85 /* KSCardbackViewController.xib in Resources */,
+				8439750B173EAC7B008D6D85 /* KSDetailVeiwController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -183,8 +183,8 @@
     [self setViewContentWithCardIndex:loadingCid];
 
     // --
-    //[KSCardProxy queryFlickr:cardCache.word];
-    [KSCardProxy queryMap:cardCache.word];
+    [KSCardProxy queryFlickr:cardCache.word];
+    //[KSCardProxy queryMap:cardCache.word];
 
 }
 - (void)proxyDidLoadFlickrWithResult:(NSDictionary *)result {
