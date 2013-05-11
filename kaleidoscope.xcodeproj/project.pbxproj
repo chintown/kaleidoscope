@@ -23,6 +23,7 @@
 		843974F5173EA67F008D6D85 /* KSCardProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 843974F4173EA67F008D6D85 /* KSCardProxy.m */; };
 		843974F7173EA6B4008D6D85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843974F6173EA6B4008D6D85 /* QuartzCore.framework */; };
 		843974F9173EA6BB008D6D85 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843974F8173EA6BB008D6D85 /* AVFoundation.framework */; };
+		843974FC173EAB3F008D6D85 /* CTPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843974FB173EAB3F008D6D85 /* CTPagedScrollView.m */; };
 		844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB252173E9D000044AB44 /* UIKit.framework */; };
 		844DB255173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB257173E9D000044AB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB256173E9D000044AB44 /* CoreGraphics.framework */; };
@@ -74,6 +75,8 @@
 		843974F4173EA67F008D6D85 /* KSCardProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCardProxy.m; sourceTree = "<group>"; };
 		843974F6173EA6B4008D6D85 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		843974F8173EA6BB008D6D85 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		843974FA173EAB3F008D6D85 /* CTPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPagedScrollView.h; sourceTree = "<group>"; };
+		843974FB173EAB3F008D6D85 /* CTPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPagedScrollView.m; sourceTree = "<group>"; };
 		844DB24F173E9D000044AB44 /* kaleidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaleidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844DB252173E9D000044AB44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		844DB254173E9D000044AB44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +143,8 @@
 		84062DD1173EA58A002DF3BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				843974FA173EAB3F008D6D85 /* CTPagedScrollView.h */,
+				843974FB173EAB3F008D6D85 /* CTPagedScrollView.m */,
 				84062DD2173EA5A4002DF3BD /* KSCard.h */,
 				84062DD3173EA5A9002DF3BD /* KSCard.m */,
 			);
@@ -446,6 +451,7 @@
 				84062DD0173EA57C002DF3BD /* KSStates.m in Sources */,
 				84062DD4173EA5A9002DF3BD /* KSCard.m in Sources */,
 				843974F5173EA67F008D6D85 /* KSCardProxy.m in Sources */,
+				843974FC173EAB3F008D6D85 /* CTPagedScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
