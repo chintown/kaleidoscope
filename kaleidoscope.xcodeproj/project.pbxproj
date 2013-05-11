@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		382F167D7B484340AE85402E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACB13937B426EB13B859F /* libPods.a */; };
+		84062DB6173EA114002DF3BD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84062DB5173EA114002DF3BD /* Storyboard.storyboard */; };
+		84062DBB173EA199002DF3BD /* icon-inbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DB7173EA199002DF3BD /* icon-inbox.png */; };
+		84062DBC173EA199002DF3BD /* icon-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DB8173EA199002DF3BD /* icon-search.png */; };
+		84062DBD173EA199002DF3BD /* item-horn.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DB9173EA199002DF3BD /* item-horn.png */; };
+		84062DBE173EA199002DF3BD /* item-horn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DBA173EA199002DF3BD /* item-horn@2x.png */; };
+		84062DC0173EA1A1002DF3BD /* bg-paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DBF173EA1A1002DF3BD /* bg-paper.png */; };
 		844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB252173E9D000044AB44 /* UIKit.framework */; };
 		844DB255173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB257173E9D000044AB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB256173E9D000044AB44 /* CoreGraphics.framework */; };
@@ -37,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84062DB5173EA114002DF3BD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		84062DB7173EA199002DF3BD /* icon-inbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-inbox.png"; path = "images/icon-inbox.png"; sourceTree = "<group>"; };
+		84062DB8173EA199002DF3BD /* icon-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-search.png"; path = "images/icon-search.png"; sourceTree = "<group>"; };
+		84062DB9173EA199002DF3BD /* item-horn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "item-horn.png"; path = "images/item-horn.png"; sourceTree = "<group>"; };
+		84062DBA173EA199002DF3BD /* item-horn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "item-horn@2x.png"; path = "images/item-horn@2x.png"; sourceTree = "<group>"; };
+		84062DBF173EA1A1002DF3BD /* bg-paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-paper.png"; path = "images/bg-paper.png"; sourceTree = "<group>"; };
 		844DB24F173E9D000044AB44 /* kaleidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaleidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844DB252173E9D000044AB44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		844DB254173E9D000044AB44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,6 +141,7 @@
 				844DB261173E9D000044AB44 /* KSAppDelegate.h */,
 				844DB262173E9D000044AB44 /* KSAppDelegate.m */,
 				844DB259173E9D000044AB44 /* Supporting Files */,
+				84062DB5173EA114002DF3BD /* Storyboard.storyboard */,
 			);
 			path = kaleidoscope;
 			sourceTree = "<group>";
@@ -175,6 +188,7 @@
 		84653E37173E9E23001939AB /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				84062DBF173EA1A1002DF3BD /* bg-paper.png */,
 				84653E34173E9DF1001939AB /* Default-568h@2x.png */,
 				84653E32173E9DED001939AB /* Default@2x.png */,
 				84653E30173E9DEB001939AB /* Default.png */,
@@ -185,6 +199,10 @@
 		84653E38173E9E2E001939AB /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				84062DB7173EA199002DF3BD /* icon-inbox.png */,
+				84062DB8173EA199002DF3BD /* icon-search.png */,
+				84062DB9173EA199002DF3BD /* item-horn.png */,
+				84062DBA173EA199002DF3BD /* item-horn@2x.png */,
 				84653E3E173E9F86001939AB /* app.icon.png */,
 				84653E3C173E9F82001939AB /* app.icon@2x.png */,
 			);
@@ -292,6 +310,12 @@
 				84653E35173E9DF1001939AB /* Default-568h@2x.png in Resources */,
 				84653E3D173E9F82001939AB /* app.icon@2x.png in Resources */,
 				84653E3F173E9F86001939AB /* app.icon.png in Resources */,
+				84062DB6173EA114002DF3BD /* Storyboard.storyboard in Resources */,
+				84062DBB173EA199002DF3BD /* icon-inbox.png in Resources */,
+				84062DBC173EA199002DF3BD /* icon-search.png in Resources */,
+				84062DBD173EA199002DF3BD /* item-horn.png in Resources */,
+				84062DBE173EA199002DF3BD /* item-horn@2x.png in Resources */,
+				84062DC0173EA1A1002DF3BD /* bg-paper.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
