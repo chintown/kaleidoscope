@@ -16,6 +16,7 @@
 		84062DC0173EA1A1002DF3BD /* bg-paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 84062DBF173EA1A1002DF3BD /* bg-paper.png */; };
 		84062DC3173EA265002DF3BD /* KSLookupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84062DC2173EA265002DF3BD /* KSLookupViewController.m */; };
 		84062DC6173EA29F002DF3BD /* KSConf.m in Sources */ = {isa = PBXBuildFile; fileRef = 84062DC5173EA29F002DF3BD /* KSConf.m */; };
+		84062DC9173EA37A002DF3BD /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84062DC8173EA37A002DF3BD /* CommonUtils.m */; };
 		844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB252173E9D000044AB44 /* UIKit.framework */; };
 		844DB255173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB257173E9D000044AB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB256173E9D000044AB44 /* CoreGraphics.framework */; };
@@ -55,6 +56,8 @@
 		84062DC2173EA265002DF3BD /* KSLookupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSLookupViewController.m; sourceTree = "<group>"; };
 		84062DC4173EA29F002DF3BD /* KSConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSConf.h; sourceTree = "<group>"; };
 		84062DC5173EA29F002DF3BD /* KSConf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSConf.m; sourceTree = "<group>"; };
+		84062DC7173EA37A002DF3BD /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
+		84062DC8173EA37A002DF3BD /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
 		844DB24F173E9D000044AB44 /* kaleidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaleidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844DB252173E9D000044AB44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		844DB254173E9D000044AB44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -227,6 +230,8 @@
 		84653E3A173E9E46001939AB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				84062DC7173EA37A002DF3BD /* CommonUtils.h */,
+				84062DC8173EA37A002DF3BD /* CommonUtils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				844DB263173E9D000044AB44 /* KSAppDelegate.m in Sources */,
 				84062DC3173EA265002DF3BD /* KSLookupViewController.m in Sources */,
 				84062DC6173EA29F002DF3BD /* KSConf.m in Sources */,
+				84062DC9173EA37A002DF3BD /* CommonUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
