@@ -33,11 +33,22 @@
 
 # pragma mark - Publics
 
-+ (void)getFlickr:(void (^)(NSMutableDictionary *result))callback
++ (void)getFlickr:(void (^)(NSMutableArray *result))callback
         withQuery:(NSString *)query{
     NSString *uri = [NSString stringWithFormat:@"flickr/?query=%@", query];
     NSDictionary *params = nil;
-    [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:callback];
+    [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
+        callback([result valueForKey:@"result"]);
+    }];
+}
+
++ (void)getWordMap:(void (^)(NSString *result))callback
+         withQuery:(NSString *)query {
+    NSString *uri = [NSString stringWithFormat:@"map/?query=%@", query];
+    NSDictionary *params = nil;
+    [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
+        callback([result valueForKey:@"result"]);
+    }];
 }
 
 @end

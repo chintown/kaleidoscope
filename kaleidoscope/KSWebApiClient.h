@@ -10,7 +10,9 @@
 
 @interface KSWebApiClient : NSObject
 
-+ (void)getFlickr:(void (^)(NSMutableDictionary *result))callback
++ (void)getFlickr:(void (^)(NSMutableArray *result))callback
+        withQuery:(NSString *)query;
++ (void)getWordMap:(void (^)(NSString *result))callback
         withQuery:(NSString *)query;
 
 @end

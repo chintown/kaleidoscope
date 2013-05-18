@@ -127,12 +127,11 @@
     self.lbPager.text = @"";
 }
 - (void)setupFlickr {
-    [KSWebApiClient getFlickr:^(NSMutableDictionary *result){
+    [KSWebApiClient getFlickr:^(NSMutableArray *imgProfiles){
         //NSLog(@"%@", result);
         [self.uiFlickr setBackgroundColor:[UIColor grayColor]];
-        NSArray *imgProfiles = [result valueForKey:@"result"];
 
-        CGFloat itemWidth = self.uiFlickr.frame.size.width;
+        //CGFloat itemWidth = self.uiFlickr.frame.size.width;
         CGFloat itemHeight = self.uiFlickr.frame.size.height;
         NSLog(@"%@",self.uiFlickr);
         __block CGFloat x = 0;
@@ -169,6 +168,16 @@
             [self.uiFlickr addSubview:item];
         }];
         self.uiFlickr.contentSize = CGSizeMake(sumContentWidth, itemHeight);
+    } withQuery:[self vocabulary]];
+}
+- (void)setupMap {
+    [KSWebApiClient getWordMap:^(NSString *html){
+        if (html == nil) {
+            return;
+        }
+        html = [NSString stringWithFormat:@"<html><head><style></style><body>%@</body></html>", html];
+        [self.uiAssist loadHTMLString:html baseURL:nil];
+        [self.uiAssist setBackgroundColor:[UIColor clearColor]];
     } withQuery:[self vocabulary]];
 }
 
@@ -219,12 +228,7 @@
 
 
     [self setupFlickr];
-}
-- (void)proxyDidLoadMapWithResult:(NSString *)result { // TODO MIGRATE
-    //NSLog(@"%@",result);
-    NSString *html = [NSString stringWithFormat:@"<html><head><style></style><body>%@</body></html>", result];
-    [self.uiAssist loadHTMLString:html baseURL:nil];
-    [self.uiAssist setBackgroundColor:[UIColor clearColor]];
+    [self setupMap];
 }
 
 #pragma mark - Cardback delegate
