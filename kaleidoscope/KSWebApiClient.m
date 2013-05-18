@@ -51,4 +51,13 @@
     }];
 }
 
++ (void)getEnglishDefinition:(void (^)(NSString *result))callback
+                   withQuery:(NSString *)query {
+    NSString *uri = [NSString stringWithFormat:@"definition/?query=%@", query];
+    NSDictionary *params = nil;
+    [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
+        callback([result valueForKey:@"result"]);
+    }];
+}
+
 @end

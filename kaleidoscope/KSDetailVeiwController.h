@@ -21,7 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *uiMap;
 @property (weak, nonatomic) IBOutlet UITextView *uiMeaning;
-@property (weak, nonatomic) IBOutlet UITextView *uiDefinition;
+@property (weak, nonatomic) IBOutlet UIWebView *uiDefinition;
 @property (weak, nonatomic) IBOutlet UITextView *uiThesaurus;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnFlip;

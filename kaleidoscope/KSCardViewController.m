@@ -132,7 +132,6 @@
 
         //CGFloat itemWidth = self.uiFlickr.frame.size.width;
         CGFloat itemHeight = self.uiFlickr.frame.size.height;
-        NSLog(@"%@",self.uiFlickr);
         __block CGFloat x = 0;
         __block CGFloat sumContentWidth = 0;
         [[self.uiFlickr subviews] enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *STOP) {

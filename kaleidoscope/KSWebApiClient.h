@@ -13,6 +13,8 @@
 + (void)getFlickr:(void (^)(NSMutableArray *result))callback
         withQuery:(NSString *)query;
 + (void)getWordMap:(void (^)(NSString *result))callback
-        withQuery:(NSString *)query;
+         withQuery:(NSString *)query;
++ (void)getEnglishDefinition:(void (^)(NSString *result))callback
+                   withQuery:(NSString *)query;
 
 @end
