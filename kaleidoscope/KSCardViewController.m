@@ -7,6 +7,7 @@
 //
 
 #import "UIImageView+AFNetworking.h"
+#import "KSWebApiClient.h"
 #import "KSStates.h"
 #import "KSCard.h"
 #import "KSCardProxy.h"
@@ -109,24 +110,71 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Task Util
-- (NSString *) vocabulary {
-    return self.lbTitle.text;
-}
-- (void) setViewContentWithCardIndex:(int)cid {
+#pragma mark - Business Setup
+- (void)setViewContentWithCardIndex:(int)cid {
     KSCard *cardCache = [KSStates getCardSourceAtIndex:cid];
     self.lbTitle.text = cardCache.word;
     self.lbNumForgot.text = [cardCache.forgot stringValue];
     self.viewSentences.text = cardCache.sentences;
-    
+
     NSString *num = [[KSStates getBucketSourceAtIndex:[KSStates getBid]-1] valueForKey:@"num"];
     self.lbPager.text = [NSString stringWithFormat:@"%d/%@", cid+1, num];
 }
-- (void) resetViewContentWithCardIndex:(int)cid {
+- (void)resetViewContentWithCardIndex:(int)cid {
     self.lbTitle.text = [NSString stringWithFormat:@"%d", cid];
     self.lbNumForgot.text = @"";
     self.viewSentences.text = @"";
     self.lbPager.text = @"";
+}
+- (void)setupFlickr {
+    [KSWebApiClient getFlickr:^(NSMutableDictionary *result){
+        //NSLog(@"%@", result);
+        [self.uiFlickr setBackgroundColor:[UIColor grayColor]];
+        NSArray *imgProfiles = [result valueForKey:@"result"];
+
+        CGFloat itemWidth = self.uiFlickr.frame.size.width;
+        CGFloat itemHeight = self.uiFlickr.frame.size.height;
+        NSLog(@"%@",self.uiFlickr);
+        __block CGFloat x = 0;
+        __block CGFloat sumContentWidth = 0;
+        [[self.uiFlickr subviews] enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *STOP) {
+            if ([view isKindOfClass:[UIImageView class]]) {
+                [view removeFromSuperview];
+            }
+        }];
+        [imgProfiles enumerateObjectsUsingBlock:^(NSDictionary *profile, NSUInteger idx, BOOL *STOP) {
+            CGFloat desHeight = self.uiFlickr.frame.size.height;
+            float ratioImage = [(NSNumber *)[profile valueForKey:@"width"] floatValue]
+            / [(NSNumber *)[profile valueForKey:@"height"] floatValue];
+            CGFloat desWidth = ratioImage * desHeight;
+
+            CGRect frame;
+            frame.origin.x = x; //itemWidth * idx;
+            frame.origin.y = 0;
+            //frame.size = self.uiFlickr.frame.size;
+            frame.size.width = desWidth;
+            frame.size.height = desHeight;
+            x += frame.size.width;
+            sumContentWidth += frame.size.width;
+
+            UIImageView *item = [[UIImageView alloc] initWithFrame:frame];
+            item.userInteractionEnabled = YES;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFlickr:)];
+            [item addGestureRecognizer:tap];
+            [item setImageWithURL:[NSURL URLWithString:[profile valueForKey:@"src"]]];
+
+            UIButton *btn = [[UIButton alloc] initWithFrame:frame];
+            [btn setBackgroundImage:[UIImage imageNamed:@"app.icon@2x.png"] forState:UIControlStateNormal];
+            
+            [self.uiFlickr addSubview:item];
+        }];
+        self.uiFlickr.contentSize = CGSizeMake(sumContentWidth, itemHeight);
+    } withQuery:[self vocabulary]];
+}
+
+#pragma mark - Task Util
+- (NSString *) vocabulary {
+    return self.lbTitle.text;
 }
 
 #pragma mark - IB delegate
@@ -168,48 +216,9 @@
     self.card = cardCache;
     [KSStates setCardSource:card atIndex:loadingCid];
     [self setViewContentWithCardIndex:loadingCid];
-}
-- (void)proxyDidLoadFlickrWithResult:(NSDictionary *)result {// TODO MIGRATE
-    //NSLog(@"%@", result);
-    [self.uiFlickr setBackgroundColor:[UIColor grayColor]];
-    NSArray *_result = (NSArray *)result;
 
-    CGFloat itemWidth = self.uiFlickr.frame.size.width;
-    CGFloat itemHeight = self.uiFlickr.frame.size.height;
-    NSLog(@"%@",self.uiFlickr);
-    __block CGFloat x = 0;
-    [[self.uiFlickr subviews] enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *STOP) {
-        if ([view isKindOfClass:[UIImageView class]]) {
-            [view removeFromSuperview];
-        }
-    }];
-    [_result enumerateObjectsUsingBlock:^(NSDictionary *profile, NSUInteger idx, BOOL *STOP) {
-        CGFloat desHeight = self.uiFlickr.frame.size.height;
-        float ratioImage = [(NSNumber *)[profile valueForKey:@"width"] floatValue]
-                            / [(NSNumber *)[profile valueForKey:@"height"] floatValue];
-        CGFloat desWidth = ratioImage * desHeight;
 
-        CGRect frame;
-        frame.origin.x = x; //itemWidth * idx;
-        frame.origin.y = 0;
-        //frame.size = self.uiFlickr.frame.size;
-        frame.size.width = desWidth;
-        frame.size.height = desHeight;
-        x += frame.size.width;
-
-        UIImageView *item = [[UIImageView alloc] initWithFrame:frame];
-        item.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFlickr:)];
-        [item addGestureRecognizer:tap];
-        [item setImageWithURL:[NSURL URLWithString:[profile valueForKey:@"src"]]];
-
-        UIButton *btn = [[UIButton alloc] initWithFrame:frame];
-        [btn setBackgroundImage:[UIImage imageNamed:@"app.icon@2x.png"] forState:UIControlStateNormal];
-
-        [self.uiFlickr addSubview:item];
-    }];
-    self.uiFlickr.contentSize =
-    CGSizeMake(itemWidth * [result count], itemHeight);
+    [self setupFlickr];
 }
 - (void)proxyDidLoadMapWithResult:(NSString *)result { // TODO MIGRATE
     //NSLog(@"%@",result);

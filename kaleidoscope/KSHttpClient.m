@@ -11,7 +11,7 @@
 
 @implementation KSHttpClient
 
-static NSString * const rootWebApi = @"http://www.chintown.org::9000/";
+static NSString * const rootWebApi = @"http://www.chintown.org:9000/";
 
 + (KSHttpClient *)sharedClient {
     static KSHttpClient *_sharedClient = nil;

@@ -35,7 +35,7 @@
 
 + (void)getFlickr:(void (^)(NSMutableDictionary *result))callback
         withQuery:(NSString *)query{
-    NSString *uri = [NSString stringWithFormat:@"flicker/?query=%@", query];
+    NSString *uri = [NSString stringWithFormat:@"flickr/?query=%@", query];
     NSDictionary *params = nil;
     [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:callback];
 }
