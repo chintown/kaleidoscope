@@ -23,15 +23,14 @@
 
 @synthesize card;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+#pragma mark - System Entry
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
 }
-
 - (void) initGestures {
     UISwipeGestureRecognizer* forwardGesture =
         [[UISwipeGestureRecognizer alloc] initWithTarget:self
@@ -59,54 +58,44 @@
     [self.view addGestureRecognizer:confidentGesture];
     [self.view addGestureRecognizer:unconfidentGesture];
 }
-
-- (void) initCardProxy {
+- (void) bindCardProxy {
     // query card
     [KSCardProxy delegate: self];
 }
-
 - (void) initViewDisplay {
     int bid = [KSStates getBid];
     NSDictionary *bucket = [KSStates getBucketSourceAtIndex:bid];
     self.title = [bucket valueForKey:@"title"];
-
 }
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     NSLog(@"[view did load @ Card]");
     [super viewDidLoad];
 
     ////[self initViewDisplay];
     [self initGestures];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewDidAppear:(BOOL)animated {
-    // appear might be slightly appear but not focus
     [super viewDidAppear:animated];
     NSLog(@"===== did appear @ Card %d =====", self.view.tag);
+    // appear might be slightly appear but not focus
 
-    [self initCardProxy];
+    // GET CURRENT CONTEXT
     int bid = [KSStates getBid];
     NSDictionary *bucket = [KSStates getBucketSourceAtIndex:bid - 1]; // id is idx + 1
     loadingCid = [KSStates getCidAmongLastRefWithOffset:self.view.tag];
-    [self resetViewContentWithCardIndex: loadingCid];
 
-    // BOUND PROTETION //
+    // BOUND CHECKING
     if (loadingCid < 0 || [[bucket valueForKey:@"num"] intValue] <= loadingCid) {
         NSLog(@"        [C] (SKIP) downloading cid %d. out of bound", loadingCid);
         // we should inform data source stop giving view
         return;
     }
-    // BOUND PROTETION //
 
-    // load next card
+    // RESET & BINDING
+    [self bindCardProxy];
+    [self resetViewContentWithCardIndex: loadingCid];
+
+    // SET CONTENT FROM CACHE/WEB
     if ([KSStates isExsitingCardSourceAtIndex:loadingCid]) {
         [self setViewContentWithCardIndex:loadingCid];
     } else {
@@ -115,8 +104,12 @@
                                OfCardIdx:loadingCid];
     }
 }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
-#pragma mark Task Util
+#pragma mark - Task Util
 - (NSString *) vocabulary {
     return self.lbTitle.text;
 }
@@ -141,18 +134,8 @@
     [KSCardProxy playGooglePronunciationByWord: [self vocabulary]
                                       withView: self.view];
 }
-
 - (IBAction)flipCard:(id)sender {
-    //[self performSegueWithIdentifier:@"showCardback" sender:sender];
-    //KSCardbackVeiwController *backController = [[KSCardbackVeiwController alloc] initWithNibName:@"KSCardbackVeiwController" bundle:nil];
-    //KSCardbackVeiwController *backController = [[KSCardbackVeiwController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
-    //KSCardbackVeiwController *backController = [storyBoard instantiateInitialViewController];
     if (self.backController == nil) {
-        /*
-        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
-                                                             bundle:NULL];
-        self.backController = [storyBoard instantiateViewControllerWithIdentifier:@"KSCardbackVeiwController"];
-        */
         self.backController = [[KSDetailVeiwController alloc] initWithNibName:@"KSDetailVeiwController" bundle:nil];
         self.backController.delegate = self;
         self.backController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
@@ -185,13 +168,8 @@
     self.card = cardCache;
     [KSStates setCardSource:card atIndex:loadingCid];
     [self setViewContentWithCardIndex:loadingCid];
-
-    // --
-    [KSCardProxy queryFlickr:cardCache.word];
-    //[KSCardProxy queryMap:cardCache.word];
-
 }
-- (void)proxyDidLoadFlickrWithResult:(NSDictionary *)result {
+- (void)proxyDidLoadFlickrWithResult:(NSDictionary *)result {// TODO MIGRATE
     //NSLog(@"%@", result);
     [self.uiFlickr setBackgroundColor:[UIColor grayColor]];
     NSArray *_result = (NSArray *)result;
@@ -233,22 +211,21 @@
     self.uiFlickr.contentSize =
     CGSizeMake(itemWidth * [result count], itemHeight);
 }
-- (void)proxyDidLoadMapWithResult:(NSString *)result {
+- (void)proxyDidLoadMapWithResult:(NSString *)result { // TODO MIGRATE
     //NSLog(@"%@",result);
     NSString *html = [NSString stringWithFormat:@"<html><head><style></style><body>%@</body></html>", result];
     [self.uiAssist loadHTMLString:html baseURL:nil];
     [self.uiAssist setBackgroundColor:[UIColor clearColor]];
 }
-#pragma mark - Cardback delegate
 
+#pragma mark - Cardback delegate
 - (void)cardbackDidFinish:(KSDetailVeiwController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (KSCard *)getCard {
     return self.card;
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showCardback"]) {
         KSDetailVeiwController *destController = [segue destinationViewController];
         [destController setDelegate:self];
