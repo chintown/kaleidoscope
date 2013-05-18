@@ -45,6 +45,12 @@
 		84653E35173E9DF1001939AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E34173E9DF1001939AB /* Default-568h@2x.png */; };
 		84653E3D173E9F82001939AB /* app.icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E3C173E9F82001939AB /* app.icon@2x.png */; };
 		84653E3F173E9F86001939AB /* app.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E3E173E9F86001939AB /* app.icon.png */; };
+		84CC47D61747B9BF00ACDAAF /* UtilColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47CB1747B9BF00ACDAAF /* UtilColor.m */; };
+		84CC47D71747B9BF00ACDAAF /* UtilConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47CD1747B9BF00ACDAAF /* UtilConfig.m */; };
+		84CC47D81747B9BF00ACDAAF /* UtilEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47CF1747B9BF00ACDAAF /* UtilEvent.m */; };
+		84CC47D91747B9BF00ACDAAF /* UtilRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47D11747B9BF00ACDAAF /* UtilRandom.m */; };
+		84CC47DA1747B9BF00ACDAAF /* UtilUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47D31747B9BF00ACDAAF /* UtilUI.m */; };
+		84CC47DB1747B9BF00ACDAAF /* Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47D51747B9BF00ACDAAF /* Debug.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +121,18 @@
 		84CC47C61747B5F200ACDAAF /* UnicodeDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeDescriptor.h; sourceTree = "<group>"; };
 		84CC47C71747B5F200ACDAAF /* AssociativeReferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssociativeReferences.h; sourceTree = "<group>"; };
 		84CC47C81747B61600ACDAAF /* MappingArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingArray.h; sourceTree = "<group>"; };
+		84CC47CA1747B9BF00ACDAAF /* UtilColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilColor.h; sourceTree = "<group>"; };
+		84CC47CB1747B9BF00ACDAAF /* UtilColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilColor.m; sourceTree = "<group>"; };
+		84CC47CC1747B9BF00ACDAAF /* UtilConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilConfig.h; sourceTree = "<group>"; };
+		84CC47CD1747B9BF00ACDAAF /* UtilConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilConfig.m; sourceTree = "<group>"; };
+		84CC47CE1747B9BF00ACDAAF /* UtilEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilEvent.h; sourceTree = "<group>"; };
+		84CC47CF1747B9BF00ACDAAF /* UtilEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilEvent.m; sourceTree = "<group>"; };
+		84CC47D01747B9BF00ACDAAF /* UtilRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilRandom.h; sourceTree = "<group>"; };
+		84CC47D11747B9BF00ACDAAF /* UtilRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilRandom.m; sourceTree = "<group>"; };
+		84CC47D21747B9BF00ACDAAF /* UtilUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilUI.h; sourceTree = "<group>"; };
+		84CC47D31747B9BF00ACDAAF /* UtilUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilUI.m; sourceTree = "<group>"; };
+		84CC47D41747B9BF00ACDAAF /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
+		84CC47D51747B9BF00ACDAAF /* Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug.m; sourceTree = "<group>"; };
 		875F23874303488486182672 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		93BACB13937B426EB13B859F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -321,6 +339,18 @@
 		84653E3A173E9E46001939AB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				84CC47CA1747B9BF00ACDAAF /* UtilColor.h */,
+				84CC47CB1747B9BF00ACDAAF /* UtilColor.m */,
+				84CC47CC1747B9BF00ACDAAF /* UtilConfig.h */,
+				84CC47CD1747B9BF00ACDAAF /* UtilConfig.m */,
+				84CC47CE1747B9BF00ACDAAF /* UtilEvent.h */,
+				84CC47CF1747B9BF00ACDAAF /* UtilEvent.m */,
+				84CC47D01747B9BF00ACDAAF /* UtilRandom.h */,
+				84CC47D11747B9BF00ACDAAF /* UtilRandom.m */,
+				84CC47D21747B9BF00ACDAAF /* UtilUI.h */,
+				84CC47D31747B9BF00ACDAAF /* UtilUI.m */,
+				84CC47D41747B9BF00ACDAAF /* Debug.h */,
+				84CC47D51747B9BF00ACDAAF /* Debug.m */,
 				84CC47C51747B57400ACDAAF /* VersionCheck.h */,
 				84062DC7173EA37A002DF3BD /* CommonUtils.h */,
 				84062DC8173EA37A002DF3BD /* CommonUtils.m */,
@@ -510,6 +540,12 @@
 				84397501173EAC1B008D6D85 /* KSSlotViewController.m in Sources */,
 				84397504173EAC3F008D6D85 /* KSCardViewController.m in Sources */,
 				8439750A173EAC7B008D6D85 /* KSDetailVeiwController.m in Sources */,
+				84CC47D61747B9BF00ACDAAF /* UtilColor.m in Sources */,
+				84CC47D71747B9BF00ACDAAF /* UtilConfig.m in Sources */,
+				84CC47D81747B9BF00ACDAAF /* UtilEvent.m in Sources */,
+				84CC47D91747B9BF00ACDAAF /* UtilRandom.m in Sources */,
+				84CC47DA1747B9BF00ACDAAF /* UtilUI.m in Sources */,
+				84CC47DB1747B9BF00ACDAAF /* Debug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
