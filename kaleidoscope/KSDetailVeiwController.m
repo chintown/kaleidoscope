@@ -1,5 +1,5 @@
 //
-//  KSCardbackVeiwController.m
+//  KSDetailVeiwController.m
 //  kaleidoscope
 //
 //  Created by Mike Chen on 3/22/13.

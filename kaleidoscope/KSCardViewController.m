@@ -10,6 +10,7 @@
 #import "KSStates.h"
 #import "KSCard.h"
 #import "KSCardProxy.h"
+#import "KSDetailVeiwController.h"
 #import "KSCardViewController.h"
 
 @interface KSCardViewController ()
@@ -147,9 +148,12 @@
     //KSCardbackVeiwController *backController = [[KSCardbackVeiwController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
     //KSCardbackVeiwController *backController = [storyBoard instantiateInitialViewController];
     if (self.backController == nil) {
+        /*
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone"
                                                              bundle:NULL];
         self.backController = [storyBoard instantiateViewControllerWithIdentifier:@"KSCardbackVeiwController"];
+        */
+        self.backController = [[KSDetailVeiwController alloc] initWithNibName:@"KSDetailVeiwController" bundle:nil];
         self.backController.delegate = self;
         self.backController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 
