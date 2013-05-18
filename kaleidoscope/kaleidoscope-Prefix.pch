@@ -13,5 +13,31 @@
     #import <Foundation/Foundation.h>
 #endif
 
+
+//http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown/7933931#7933931
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+
+#define IS_PAD     ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+#define IS_PHONE   ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+
+// normally, you have only one; just pop the last from the array
+#define PATH_HOME [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
+#define XNotificationCenter [NSNotificationCenter defaultCenter]
+
 // project code
 #import "KSConf.h"
+
+
+#import "UtilConfig.h"
+#import "Debug.h"
+#import "UtilRandom.h"
+#import "UtilColor.h"
+#import "UtilUI.h"
+#import "UtilEvent.h"

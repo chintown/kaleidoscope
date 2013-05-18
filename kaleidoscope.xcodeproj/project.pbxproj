@@ -51,6 +51,8 @@
 		84CC47D91747B9BF00ACDAAF /* UtilRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47D11747B9BF00ACDAAF /* UtilRandom.m */; };
 		84CC47DA1747B9BF00ACDAAF /* UtilUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47D31747B9BF00ACDAAF /* UtilUI.m */; };
 		84CC47DB1747B9BF00ACDAAF /* Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47D51747B9BF00ACDAAF /* Debug.m */; };
+		84CC47DE1747BA1A00ACDAAF /* KSHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47DD1747BA1A00ACDAAF /* KSHttpClient.m */; };
+		84CC47E11747BAEA00ACDAAF /* KSWebApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47E01747BAEA00ACDAAF /* KSWebApiClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,10 @@
 		84CC47D31747B9BF00ACDAAF /* UtilUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilUI.m; sourceTree = "<group>"; };
 		84CC47D41747B9BF00ACDAAF /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		84CC47D51747B9BF00ACDAAF /* Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debug.m; sourceTree = "<group>"; };
+		84CC47DC1747BA1A00ACDAAF /* KSHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHttpClient.h; sourceTree = "<group>"; };
+		84CC47DD1747BA1A00ACDAAF /* KSHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHttpClient.m; sourceTree = "<group>"; };
+		84CC47DF1747BAEA00ACDAAF /* KSWebApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWebApiClient.h; sourceTree = "<group>"; };
+		84CC47E01747BAEA00ACDAAF /* KSWebApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWebApiClient.m; sourceTree = "<group>"; };
 		875F23874303488486182672 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		93BACB13937B426EB13B859F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,6 +173,10 @@
 		84062DCD173EA569002DF3BD /* DataManipulator */ = {
 			isa = PBXGroup;
 			children = (
+				84CC47DC1747BA1A00ACDAAF /* KSHttpClient.h */,
+				84CC47DD1747BA1A00ACDAAF /* KSHttpClient.m */,
+				84CC47DF1747BAEA00ACDAAF /* KSWebApiClient.h */,
+				84CC47E01747BAEA00ACDAAF /* KSWebApiClient.m */,
 				843974F3173EA67F008D6D85 /* KSCardProxy.h */,
 				843974F4173EA67F008D6D85 /* KSCardProxy.m */,
 				84062DCE173EA57C002DF3BD /* KSStates.h */,
@@ -546,6 +556,8 @@
 				84CC47D91747B9BF00ACDAAF /* UtilRandom.m in Sources */,
 				84CC47DA1747B9BF00ACDAAF /* UtilUI.m in Sources */,
 				84CC47DB1747B9BF00ACDAAF /* Debug.m in Sources */,
+				84CC47DE1747BA1A00ACDAAF /* KSHttpClient.m in Sources */,
+				84CC47E11747BAEA00ACDAAF /* KSWebApiClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
-#import "KKUtilColor.h"
+#import "UtilColor.h"
 
 @implementation KKUtilColor
 

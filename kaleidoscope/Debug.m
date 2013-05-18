@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
-#import "KKDebug.h"
+#import "Debug.h"
 
 @implementation KKDebug
 

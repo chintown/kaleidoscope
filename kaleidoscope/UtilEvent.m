@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
-#import "KKUtilEvent.h"
+#import "UtilEvent.h"
 
 @implementation KKUtilEvent
 

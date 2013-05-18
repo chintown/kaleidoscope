@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
-#import "KKUtilRandom.h"
+#import "UtilRandom.h"
 
 @implementation KKUtilRandom
 
