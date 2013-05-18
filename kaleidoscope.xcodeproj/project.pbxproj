@@ -111,6 +111,10 @@
 		84653E34173E9DF1001939AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		84653E3C173E9F82001939AB /* app.icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app.icon@2x.png"; path = "../app.icon@2x.png"; sourceTree = "<group>"; };
 		84653E3E173E9F86001939AB /* app.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app.icon.png; path = ../app.icon.png; sourceTree = "<group>"; };
+		84CC47C51747B57400ACDAAF /* VersionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionCheck.h; sourceTree = "<group>"; };
+		84CC47C61747B5F200ACDAAF /* UnicodeDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeDescriptor.h; sourceTree = "<group>"; };
+		84CC47C71747B5F200ACDAAF /* AssociativeReferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssociativeReferences.h; sourceTree = "<group>"; };
+		84CC47C81747B61600ACDAAF /* MappingArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingArray.h; sourceTree = "<group>"; };
 		875F23874303488486182672 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		93BACB13937B426EB13B859F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -229,6 +233,7 @@
 			children = (
 				84653E39173E9E3A001939AB /* Configs */,
 				84653E3A173E9E46001939AB /* Utils */,
+				84CC47C31747B4C400ACDAAF /* Extensions */,
 				84062DCD173EA569002DF3BD /* DataManipulator */,
 				84062DD1173EA58A002DF3BD /* Components */,
 				84653E3B173E9E56001939AB /* Controllers */,
@@ -316,6 +321,7 @@
 		84653E3A173E9E46001939AB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				84CC47C51747B57400ACDAAF /* VersionCheck.h */,
 				84062DC7173EA37A002DF3BD /* CommonUtils.h */,
 				84062DC8173EA37A002DF3BD /* CommonUtils.m */,
 			);
@@ -329,6 +335,16 @@
 				843974FD173EABFA008D6D85 /* Lookup */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		84CC47C31747B4C400ACDAAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84CC47C81747B61600ACDAAF /* MappingArray.h */,
+				84CC47C61747B5F200ACDAAF /* UnicodeDescriptor.h */,
+				84CC47C71747B5F200ACDAAF /* AssociativeReferences.h */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
