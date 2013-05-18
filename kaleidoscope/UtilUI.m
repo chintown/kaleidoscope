@@ -1,18 +1,17 @@
 //
-//  KKUIStyle.m
+//  UIStyle.m
 //  comicReader
 //
 //  Created by Mike Chen on 4/14/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
 #import <QuartzCore/QuartzCore.h>
 #import "UtilUI.h"
 
-@implementation KKUtilUI
+@implementation UtilUI
 
 + (void)addBorderOnView:(UIView *)view withColor:(UIColor *)color {
-    [KKUtilUI addBorderOnView:view withColor:color withWidth:1.];
+    [UtilUI addBorderOnView:view withColor:color withWidth:1.];
 }
 + (void)addBorderOnView:(UIView *)view withColor:(UIColor *)color withWidth:(CGFloat)width {
     view.layer.borderColor = color.CGColor;
@@ -21,7 +20,7 @@
 
 + (void)inspectFrameOfViews:(NSArray *)views {
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *STOP) {
-        [KKUtilUI inspectFrameOfView:view];
+        [UtilUI inspectFrameOfView:view];
     }];
 }
 + (void)inspectFrameOfView:(UIView *)view {
@@ -40,7 +39,7 @@
 	bool landscape;
 
     /*if (TARGET_IPHONE_SIMULATOR) {
-        NSString *initOrientation = [KKUtilConfig getProjectPlistStringForKey:@"UIInterfaceOrientation"];
+        NSString *initOrientation = [UtilConfig getProjectPlistStringForKey:@"UIInterfaceOrientation"];
         // e.g. UIInterfaceOrientationLandscapeRight
         landscape = ([[initOrientation lowercaseString] rangeOfString:@"landscape"].location != NSNotFound);
     } else*/
@@ -68,17 +67,17 @@
 }
 
 + (void)DEPRECATED_updateOrientationDependentView:(UIView *)view onWidth:(CGFloat)width {
-    if ([KKUtilUI isScreenPortrait]) {
-        [KKUtilUI updateView:view onWidth:width];
+    if ([UtilUI isScreenPortrait]) {
+        [UtilUI updateView:view onWidth:width];
     } else {
-        [KKUtilUI updateView:view onHeight:width];
+        [UtilUI updateView:view onHeight:width];
     }
 }
 + (void)DEPRECATED_updateOrientationDependentView:(UIView *)view onHeight:(CGFloat)height {
-    if ([KKUtilUI isScreenPortrait]) {
-        [KKUtilUI updateView:view onHeight:height];
+    if ([UtilUI isScreenPortrait]) {
+        [UtilUI updateView:view onHeight:height];
     } else {
-        [KKUtilUI updateView:view onWidth:height];
+        [UtilUI updateView:view onWidth:height];
     }
 }
 
@@ -117,10 +116,10 @@
 }
 
 + (void)centerViewHorizontallyToParent:(UIView *)view {
-    [KKUtilUI centerViewHorizontally:view toView:view.superview];
+    [UtilUI centerViewHorizontally:view toView:view.superview];
 }
 + (void)centerViewVerticallyToParent:(UIView *)view {
-    [KKUtilUI centerViewVertically:view toView:view.superview];    
+    [UtilUI centerViewVertically:view toView:view.superview];
 }
 + (void)centerViewHorizontally:(UIView *)subject toView:(UIView *)target {
     CGSize size = target.frame.size;
@@ -128,7 +127,7 @@
     CGPoint newCenter;
     newCenter = CGPointMake(size.width/2,
                             center.y);
-    //if ([KKUtilUI isScreenPortrait])
+    //if ([UtilUI isScreenPortrait])
     [subject setCenter:newCenter];
 }
 + (void)centerViewVertically:(UIView *)subject toView:(UIView *)target {
@@ -137,7 +136,7 @@
     CGPoint newCenter;
     newCenter = CGPointMake(center.x,
                             size.height/2);
-    //if ([KKUtilUI isScreenPortrait]) {
+    //if ([UtilUI isScreenPortrait]) {
     [subject setCenter:newCenter];
 }
 
@@ -145,7 +144,7 @@
     if (target == nil) {
         return;
     }
-    //NSAssert(target != nil, @"can not place view with NIL referece! (KKUtilUI)");
+    //NSAssert(target != nil, @"can not place view with NIL referece! (UtilUI)");
     CGPoint siblingPos = target.frame.origin;
     CGSize siblingSize = target.frame.size;
 
@@ -173,7 +172,7 @@
 }
 
 + (CGFloat)getMaxBottomBoundFromSubviewsOf:(UIView *)view {
-    return [KKUtilUI getMaxBottomBoundFromSubviewsOf:view withoutClass:nil];
+    return [UtilUI getMaxBottomBoundFromSubviewsOf:view withoutClass:nil];
 }
 + (CGFloat)getMaxBottomBoundFromSubviewsOf:(UIView *)view withoutClass:(Class)filterClass {
     __block NSMutableArray *subviewBottomBounds = [[NSMutableArray alloc] init];
@@ -193,7 +192,7 @@
 + (void)reflowSubviewVeritcally:(UIView *)view {
     __block int lastBottomBounds = 0;
     [view.subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *STOP) {
-        [KKUtilUI updateView:subview onPositionY:lastBottomBounds];
+        [UtilUI updateView:subview onPositionY:lastBottomBounds];
 
         lastBottomBounds = lastBottomBounds + subview.frame.size.height;
         //NSLog(@"bound %d. view %@", lastBottomBounds, subview);
@@ -201,12 +200,12 @@
 }
 
 + (void)reflowViewsVeritcally:(NSArray *)views {
-    [KKUtilUI reflowViewsVeritcally:views withMargin:CGRectMake(0,0,0,0)];
+    [UtilUI reflowViewsVeritcally:views withMargin:CGRectMake(0,0,0,0)];
 }
 + (void)reflowViewsVeritcally:(NSArray *)views withMargin:(CGRect)margin {
     __block UIView *lastSibling;
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *STOP) {
-        [KKUtilUI placeView:view atBottomOfView:lastSibling withPadding:(CGRect)margin];
+        [UtilUI placeView:view atBottomOfView:lastSibling withPadding:(CGRect)margin];
         lastSibling = view;
     }];
 }
@@ -218,7 +217,7 @@
     }];
     float minYPosition = [[siblingYPositions valueForKeyPath:@"@min.self"] floatValue];
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *STOP) {
-        [KKUtilUI updateView:view onPositionY:minYPosition];
+        [UtilUI updateView:view onPositionY:minYPosition];
     }];
 }
 
@@ -232,7 +231,7 @@
         for (int y = 0; y < numV; y++) {
             CGRect frame = CGRectMake(x*sizeGrid, y*sizeGrid, sizeDot, sizeDot);
             UIView *dot = [[UIView alloc] initWithFrame:frame];
-            [dot setBackgroundColor:[KKUtilColor colorFromHexString:@"#36648B"]];
+            [dot setBackgroundColor:[UtilColor colorFromHexString:@"#36648B"]];
             [dot.layer setCornerRadius:4.0f];
             [view addSubview:dot];
         }

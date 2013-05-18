@@ -1,14 +1,13 @@
 //
-//  KKUtilConfig.m
+//  UtilConfig.m
 //  comicReader
 //
 //  Created by Mike Chen on 4/16/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
 #import "UtilConfig.h"
 
-@implementation KKUtilConfig
+@implementation UtilConfig
 
 + (id)getProjectPlistValueForKey:(NSString *)key {
     NSDictionary *ipl = [[NSBundle mainBundle] infoDictionary];
@@ -16,12 +15,12 @@
     return [ipl valueForKey:key];
 }
 + (NSString *)getProjectPlistStringForKey:(NSString *)key {
-    return (NSString *)[KKUtilConfig getProjectPlistValueForKey:key];
+    return (NSString *)[UtilConfig getProjectPlistValueForKey:key];
 }
 + (NSArray *)getProjectPlistArrayforKey:(NSString *)key {
-    return (NSArray *)[KKUtilConfig getProjectPlistValueForKey:key];
+    return (NSArray *)[UtilConfig getProjectPlistValueForKey:key];
 }
 + (NSDictionary *)getProjectPlistDictionaryForKey:(NSString *)key {
-    return (NSDictionary *)[KKUtilConfig getProjectPlistValueForKey:key];
+    return (NSDictionary *)[UtilConfig getProjectPlistValueForKey:key];
 }
 @end

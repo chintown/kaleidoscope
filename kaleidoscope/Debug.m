@@ -1,14 +1,13 @@
 //
-//  KKDebug.m
+//  Debug.m
 //  comicReader
 //
 //  Created by Mike Chen on 4/12/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
 #import "Debug.h"
 
-@implementation KKDebug
+@implementation Debug
 
 + (void)logMethod {
     NSString *sourceString = [[NSThread callStackSymbols] objectAtIndex:1];

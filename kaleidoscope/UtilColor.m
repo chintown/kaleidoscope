@@ -1,14 +1,13 @@
 //
-//  KKUtilColor.m
+//  UtilColor.m
 //  comicReader
 //
 //  Created by Mike Chen on 4/8/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
 #import "UtilColor.h"
 
-@implementation KKUtilColor
+@implementation UtilColor
 
 // http://stackoverflow.com/questions/3805177/how-to-convert-hex-rgb-color-codes-to-uicolor
 + (UIColor *)colorFromHexString:(NSString *)hexString {

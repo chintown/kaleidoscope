@@ -1,13 +1,12 @@
 //
-//  KKMappingArray.h
+//  MappingArray.h
 //  comicReader
 //
 //  Created by Mike Chen on 5/6/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
-#ifndef comicReader_KKMappingArray_h
-#define comicReader_KKMappingArray_h
+#ifndef comicReader_MappingArray_h
+#define comicReader_MappingArray_h
 
 // http://forrst.com/posts/Array_mapping_in_Objective_C-UNN
 

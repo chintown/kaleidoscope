@@ -1,13 +1,12 @@
 //
-//  KKUnicodeDescriptor.h
+//  UnicodeDescriptor.h
 //  comicReader
 //
 //  Created by Mike Chen on 4/30/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
-#ifndef comicReader_KKUnicodeDescriptor_h
-#define comicReader_KKUnicodeDescriptor_h
+#ifndef comicReader_UnicodeDescriptor_h
+#define comicReader_UnicodeDescriptor_h
 
 // http://www.ptt.cc/bbs/MacDev/M.1321790683.A.059.html
 @implementation NSArray(Unicode)

@@ -1,13 +1,12 @@
 //
-//  KKAssociativeReferences.h
+//  AssociativeReferences.h
 //  comicReader
 //
 //  Created by Mike Chen on 4/18/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
-#ifndef comicReader_KKAssociativeReferences_h
-#define comicReader_KKAssociativeReferences_h
+#ifndef comicReader_AssociativeReferences_h
+#define comicReader_AssociativeReferences_h
 
 @interface UIView (ObjectTagAdditions)
 @property (nonatomic, retain) id objectTag;

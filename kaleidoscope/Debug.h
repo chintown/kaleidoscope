@@ -1,9 +1,8 @@
 //
-//  KKDebug.h
+//  Debug.h
 //  comicReader
 //
 //  Created by Mike Chen on 4/12/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -25,7 +24,6 @@
 #define deRect(...) NSLog(@"%@", NSStringFromCGRect(__VA_ARGS__))
 #define dePair(MSG, VAR) NSLog(@"%@ - %@", MSG, VAR)
 #define deLog(FMT, ...) NSLog(FMT, ##__VA_ARGS__)
-#define deKKPageInfo(...) NSLog(@"%@", [NSString stringWithFormat:@"%d-%d(%d)", __VA_ARGS__.offset, __VA_ARGS__.offset + __VA_ARGS__.length, __VA_ARGS__.length])
 
 #define deOrientation(...) \
 NSString *orient; \
@@ -53,7 +51,7 @@ NSLog(@"orientation: %@", orient);
 #define deHistory(MSG, VAR) //NSLog(@"%@ - %@", MSG, VAR)
 #define deBookmark(MSG, VAR) //NSLog(@"%@ - %@", MSG, VAR)
 
-@interface KKDebug : NSObject
+@interface Debug : NSObject
 
 + (void)logMethod;
 

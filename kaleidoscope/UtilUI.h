@@ -1,14 +1,13 @@
 //
-//  KKUIStyle.h
+//  UIStyle.h
 //  comicReader
 //
 //  Created by Mike Chen on 4/14/13.
-//  Copyright (c) 2013 kkBox. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface KKUtilUI : NSObject
+@interface UtilUI : NSObject
 
 + (void)addBorderOnView:(UIView *)view withColor:(UIColor *)color;
 + (void)addBorderOnView:(UIView *)view withColor:(UIColor *)color withWidth:(CGFloat)width;
