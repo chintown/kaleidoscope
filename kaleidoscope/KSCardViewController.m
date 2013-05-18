@@ -5,7 +5,6 @@
 //  Created by Mike Chen on 3/20/13.
 //  Copyright (c) 2013 Mike Chen. All rights reserved.
 //
-
 #import "UIImageView+AFNetworking.h"
 #import "KSWebApiClient.h"
 #import "KSStates.h"
@@ -178,6 +177,14 @@
         html = [NSString stringWithFormat:@"<html><head><style></style><body>%@</body></html>", html];
         [self.uiAssist loadHTMLString:html baseURL:nil];
         [self.uiAssist setBackgroundColor:[UIColor clearColor]];
+
+        [UtilEvent executeBlock:^(){
+            CGSize imgSize = self.uiAssist.scrollView.contentSize;
+            CGSize viewSize = self.uiAssist.frame.size;
+            CGFloat offsetXForCenter = (imgSize.width - viewSize.width) / 2;
+            CGFloat offsetYForCenter = (imgSize.height - viewSize.height) / 2;
+            self.uiAssist.scrollView.contentOffset = CGPointMake(offsetXForCenter, offsetYForCenter);
+        } afterSeconds:0.1];
     } withQuery:[self vocabulary]];
 }
 
