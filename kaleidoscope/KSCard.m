@@ -53,4 +53,20 @@
     return self;
 }
 
+- (NSString *)description {
+    NSMutableArray *lines = [[NSMutableArray alloc] init];
+    [lines addObject:[NSString stringWithFormat:@"word\n%@", self.word]];
+    [lines addObject:[NSString stringWithFormat:@"cMean\n%@", self.cMean]];
+    [lines addObject:[NSString stringWithFormat:@"eMean\n%@", self.eMean]];
+    [lines addObject:[NSString stringWithFormat:@"level\n%@", self.level]];
+    [lines addObject:[NSString stringWithFormat:@"forgot\n%@", self.forgot]];
+    [lines addObject:[NSString stringWithFormat:@"tip\n%@", self.tip]];
+    [lines addObject:[NSString stringWithFormat:@"hint\n%@", self.hint]];
+    [lines addObject:[NSString stringWithFormat:@"thesaurus\n%@", self.thesaurus]];
+    [lines addObject:[NSString stringWithFormat:@"images\n%@", self.images]];
+    [lines addObject:[NSString stringWithFormat:@"sentences\n%@", self.sentences]];
+    NSString *result = [lines componentsJoinedByString:@"\n"];
+    return result;
+}
+
 @end

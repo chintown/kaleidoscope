@@ -22,7 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *uiMap;
 @property (weak, nonatomic) IBOutlet UITextView *uiMeaning;
 @property (weak, nonatomic) IBOutlet UIWebView *uiDefinition;
-@property (weak, nonatomic) IBOutlet UITextView *uiThesaurus;
+@property (weak, nonatomic) IBOutlet UITextView *uiTips;
+@property (weak, nonatomic) IBOutlet UITextView *uiExam;
+@property (weak, nonatomic) IBOutlet UIWebView *uiThesaurus;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnFlip;
 - (IBAction)flipCard:(id)sender;

@@ -33,9 +33,19 @@
 
     [[self.uiDefinition layer] setCornerRadius:10.0];
     [[self.uiDefinition layer] setMasksToBounds:YES];
+
+    [[self.uiTips layer] setCornerRadius:10.0];
+    [[self.uiTips layer] setMasksToBounds:YES];
+
+    [[self.uiExam layer] setCornerRadius:10.0];
+    [[self.uiExam layer] setMasksToBounds:YES];
+
+    [[self.uiThesaurus layer] setCornerRadius:10.0];
+    [[self.uiThesaurus layer] setMasksToBounds:YES];
 }
 - (void)setupCardContent:(KSCard *)card {
     self.uiMeaning.text = card.cMean;
+    self.uiTips.text = card.tip;
 }
 - (void)setupDefinitionByQuery:(NSString *)query {
     [KSWebApiClient getEnglishDefinition:^(NSString *html) {
@@ -44,7 +54,6 @@
         [self.uiDefinition setBackgroundColor:[UIColor clearColor]];
     } withQuery:query];
 }
-
 # pragma mark - System Entry
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -63,6 +72,7 @@
     [self setupSelfStyle];
 
     KSCard *card = [self.delegate getCard];
+    de(card);
     [self setupCardContent:card];
     [self setupDefinitionByQuery:card.word];
 }
