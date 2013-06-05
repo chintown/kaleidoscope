@@ -54,6 +54,19 @@
         [self.uiDefinition setBackgroundColor:[UIColor clearColor]];
     } withQuery:query];
 }
+- (void)setupExamByQuery:(NSString *)query {
+    [KSWebApiClient getExam:^(NSString *text){
+        self.uiExam.text = text;
+    } withQuery:query];
+}
+- (void)setupThesaurusByQuery:(NSString *)query {
+    [KSWebApiClient getThesaurus:^(NSString *html) {
+        html = [NSString stringWithFormat:@"<html><head><style></style><body>%@</body></html>", html];
+        [self.uiThesaurus loadHTMLString:html baseURL:nil];
+        [self.uiThesaurus setBackgroundColor:[UIColor clearColor]];
+    } withQuery:query];
+}
+
 # pragma mark - System Entry
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -75,6 +88,8 @@
     de(card);
     [self setupCardContent:card];
     [self setupDefinitionByQuery:card.word];
+    [self setupExamByQuery:card.word];
+    [self setupThesaurusByQuery:card.word];
 }
 
 - (void)didReceiveMemoryWarning
