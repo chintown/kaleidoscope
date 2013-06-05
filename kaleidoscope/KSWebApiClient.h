@@ -16,5 +16,9 @@
          withQuery:(NSString *)query;
 + (void)getEnglishDefinition:(void (^)(NSString *result))callback
                    withQuery:(NSString *)query;
++ (void)getExam:(void (^)(NSString *result))callback
+      withQuery:(NSString *)query;
++ (void)getThesaurus:(void (^)(NSString *result))callback
+           withQuery:(NSString *)query;
 
 @end

@@ -60,4 +60,24 @@
     }];
 }
 
++ (void)getExam:(void (^)(NSString *result))callback
+      withQuery:(NSString *)query {
+    NSString *uri = [NSString stringWithFormat:@"exam/?query=%@", query];
+    NSDictionary *params = nil;
+    [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
+        NSString *html = [result valueForKey:@"result"];
+        html = [html stringByReplacingOccurrencesOfString:@"<br/>" withString:@"\n"];
+        callback(html);
+    }];
+}
+
++ (void)getThesaurus:(void (^)(NSString *result))callback
+           withQuery:(NSString *)query {
+    NSString *uri = [NSString stringWithFormat:@"thesaurus/?query=%@", query];
+    NSDictionary *params = nil;
+    [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
+        callback([result valueForKey:@"result"]);
+    }];
+}
+
 @end
