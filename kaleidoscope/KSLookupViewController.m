@@ -119,7 +119,7 @@
 
 # pragma mark Self > UIWebView
 -(void) query: (NSString *) term {
-    NSString *root = @"http://chintown.no-ip.org/lookup/?query=";
+    NSString *root = @"http://www.chintown.org/lookup/?query=";
     root = [root stringByAppendingString:term];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:root]];

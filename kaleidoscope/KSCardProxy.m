@@ -16,8 +16,8 @@ static NSString *qCardFmt = @"http://www.chintown.org/lookup/api.php?target=card
 static NSString *qUpgradeFmt = @"http://www.chintown.org/lookup/api.php?target=_move&level=%d&word=%@";
 static NSString *qDowngradeFmt = @"http://www.chintown.org/lookup/api.php?target=_reset&level=%d&word=%@";
 static NSString *gPronunciationFmt = @"http://www.gstatic.com/dictionary/static/sounds/lf/0/%@/%@#_us_1.mp3";
-static NSString *qFlickrFmt = @"http://chintown.no-ip.org:9000/flickr/?query=%@";
-static NSString *qMapFmt = @"http://chintown.no-ip.org:9000/map/?query=%@";
+static NSString *qFlickrFmt = @"http://www.chintown.org:9000/flickr/?query=%@";
+static NSString *qMapFmt = @"http://www.chintown.org:9000/map/?query=%@";
 
 static NSURLConnection *connection;
 static UIBackgroundTaskIdentifier backgroundTaskId;
