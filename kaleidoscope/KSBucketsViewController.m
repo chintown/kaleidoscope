@@ -40,6 +40,13 @@
     // should be updated frequently
 //    [KSCardProxy delegate: self];
 //    [KSCardProxy queryBuckets];
+
+    // pull-to-refresh mechanism
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self
+                action:@selector(triggerRefreshControl:)
+      forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -224,6 +231,35 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 #pragma mark - NewsProxy delegate
 - (void) proxyDidLoadBucketsWithResult: (NSDictionary *) result {
     [self updateBucketSourceWithResult: result];
+}
+
+#pragma mark - RefreshControl delegate
+-(void) triggerRefreshControl:(UIRefreshControl *)refresh {
+    [self updateRefreshControl:refresh withHint:@"Refreshing data..."];
+
+    [KSCardProxy queryBuckets];
+
+    [self windupRefreshControl:refresh];
+    [refresh endRefreshing];
+
+}
+
+- (void) prepareRefreshControl: (UIRefreshControl *)refresh {
+    [self updateRefreshControl:refresh withHint:@"Pull to Refresh"];
+}
+- (void) updateRefreshControl: (UIRefreshControl *)refresh
+                     withHint:(NSString *)hint {
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString: hint];
+}
+- (void) windupRefreshControl: (UIRefreshControl *)refresh {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM d, h:mm a"];
+    NSString *lastUpdate = [NSString stringWithFormat: @"%@",
+                            [formatter stringFromDate:[NSDate date]]
+                            ];
+
+    NSString *hint = [NSString stringWithFormat: @"Last updated on %@", lastUpdate];
+    [self updateRefreshControl:refresh withHint:hint];
 }
 
 @end
