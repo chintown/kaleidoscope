@@ -30,6 +30,8 @@
 		8439750A173EAC7B008D6D85 /* KSDetailVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */; };
 		8439750B173EAC7B008D6D85 /* KSDetailVeiwController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84397509173EAC7B008D6D85 /* KSDetailVeiwController.xib */; };
 		844910B617B51C5D00F31E54 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848132511763AD1700EDCF20 /* Reveal.framework */; };
+		844910B917B5278800F31E54 /* icon-eye.png in Resources */ = {isa = PBXBuildFile; fileRef = 844910B817B5278800F31E54 /* icon-eye.png */; };
+		844910BF17B5290300F31E54 /* KSHeadlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844910BE17B5290300F31E54 /* KSHeadlineViewController.m */; };
 		844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB252173E9D000044AB44 /* UIKit.framework */; };
 		844DB255173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB257173E9D000044AB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB256173E9D000044AB44 /* CoreGraphics.framework */; };
@@ -100,6 +102,9 @@
 		84397507173EAC7B008D6D85 /* KSDetailVeiwController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDetailVeiwController.h; sourceTree = "<group>"; };
 		84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDetailVeiwController.m; sourceTree = "<group>"; };
 		84397509173EAC7B008D6D85 /* KSDetailVeiwController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSDetailVeiwController.xib; sourceTree = "<group>"; };
+		844910B817B5278800F31E54 /* icon-eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-eye.png"; path = "images/icon-eye.png"; sourceTree = "<group>"; };
+		844910BD17B5290300F31E54 /* KSHeadlineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHeadlineViewController.h; sourceTree = "<group>"; };
+		844910BE17B5290300F31E54 /* KSHeadlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHeadlineViewController.m; sourceTree = "<group>"; };
 		844DB24F173E9D000044AB44 /* kaleidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaleidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844DB252173E9D000044AB44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		844DB254173E9D000044AB44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -228,6 +233,15 @@
 			name = Lookdown;
 			sourceTree = "<group>";
 		};
+		844910C017B5290800F31E54 /* LookAhead */ = {
+			isa = PBXGroup;
+			children = (
+				844910BD17B5290300F31E54 /* KSHeadlineViewController.h */,
+				844910BE17B5290300F31E54 /* KSHeadlineViewController.m */,
+			);
+			name = LookAhead;
+			sourceTree = "<group>";
+		};
 		844DB246173E9D000044AB44 = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +349,7 @@
 		84653E38173E9E2E001939AB /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				844910B817B5278800F31E54 /* icon-eye.png */,
 				84062DB7173EA199002DF3BD /* icon-inbox.png */,
 				84062DB8173EA199002DF3BD /* icon-search.png */,
 				84062DB9173EA199002DF3BD /* item-horn.png */,
@@ -379,8 +394,9 @@
 		84653E3B173E9E56001939AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				843974FE173EAC04008D6D85 /* Lookdown */,
 				843974FD173EABFA008D6D85 /* Lookup */,
+				843974FE173EAC04008D6D85 /* Lookdown */,
+				844910C017B5290800F31E54 /* LookAhead */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -483,6 +499,7 @@
 				84062DC0173EA1A1002DF3BD /* bg-paper.png in Resources */,
 				84397506173EAC5D008D6D85 /* KSCardViewController.xib in Resources */,
 				8439750B173EAC7B008D6D85 /* KSDetailVeiwController.xib in Resources */,
+				844910B917B5278800F31E54 /* icon-eye.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +583,7 @@
 				84CC47DB1747B9BF00ACDAAF /* Debug.m in Sources */,
 				84CC47DE1747BA1A00ACDAAF /* KSHttpClient.m in Sources */,
 				84CC47E11747BAEA00ACDAAF /* KSWebApiClient.m in Sources */,
+				844910BF17B5290300F31E54 /* KSHeadlineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
