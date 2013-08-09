@@ -29,6 +29,7 @@
 		84397506173EAC5D008D6D85 /* KSCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84397505173EAC5D008D6D85 /* KSCardViewController.xib */; };
 		8439750A173EAC7B008D6D85 /* KSDetailVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84397508173EAC7B008D6D85 /* KSDetailVeiwController.m */; };
 		8439750B173EAC7B008D6D85 /* KSDetailVeiwController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84397509173EAC7B008D6D85 /* KSDetailVeiwController.xib */; };
+		844910B617B51C5D00F31E54 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848132511763AD1700EDCF20 /* Reveal.framework */; };
 		844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB252173E9D000044AB44 /* UIKit.framework */; };
 		844DB255173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB257173E9D000044AB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB256173E9D000044AB44 /* CoreGraphics.framework */; };
@@ -45,6 +46,7 @@
 		84653E35173E9DF1001939AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E34173E9DF1001939AB /* Default-568h@2x.png */; };
 		84653E3D173E9F82001939AB /* app.icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E3C173E9F82001939AB /* app.icon@2x.png */; };
 		84653E3F173E9F86001939AB /* app.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E3E173E9F86001939AB /* app.icon.png */; };
+		848132541763AD4700EDCF20 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848132531763AD4700EDCF20 /* CFNetwork.framework */; };
 		84CC47D61747B9BF00ACDAAF /* UtilColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47CB1747B9BF00ACDAAF /* UtilColor.m */; };
 		84CC47D71747B9BF00ACDAAF /* UtilConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47CD1747B9BF00ACDAAF /* UtilConfig.m */; };
 		84CC47D81747B9BF00ACDAAF /* UtilEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47CF1747B9BF00ACDAAF /* UtilEvent.m */; };
@@ -119,6 +121,8 @@
 		84653E34173E9DF1001939AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		84653E3C173E9F82001939AB /* app.icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app.icon@2x.png"; path = "../app.icon@2x.png"; sourceTree = "<group>"; };
 		84653E3E173E9F86001939AB /* app.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app.icon.png; path = ../app.icon.png; sourceTree = "<group>"; };
+		848132511763AD1700EDCF20 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "/Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<absolute>"; };
+		848132531763AD4700EDCF20 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		84CC47C51747B57400ACDAAF /* VersionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionCheck.h; sourceTree = "<group>"; };
 		84CC47C61747B5F200ACDAAF /* UnicodeDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeDescriptor.h; sourceTree = "<group>"; };
 		84CC47C71747B5F200ACDAAF /* AssociativeReferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssociativeReferences.h; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844910B617B51C5D00F31E54 /* Reveal.framework in Frameworks */,
+				848132541763AD4700EDCF20 /* CFNetwork.framework in Frameworks */,
 				843974F9173EA6BB008D6D85 /* AVFoundation.framework in Frameworks */,
 				843974F7173EA6B4008D6D85 /* QuartzCore.framework in Frameworks */,
 				844DB253173E9D000044AB44 /* UIKit.framework in Frameworks */,
@@ -245,6 +251,8 @@
 		844DB251173E9D000044AB44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				848132511763AD1700EDCF20 /* Reveal.framework */,
+				848132531763AD4700EDCF20 /* CFNetwork.framework */,
 				843974F6173EA6B4008D6D85 /* QuartzCore.framework */,
 				843974F8173EA6BB008D6D85 /* AVFoundation.framework */,
 				844DB252173E9D000044AB44 /* UIKit.framework */,
@@ -659,6 +667,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875F23874303488486182672 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kaleidoscope/kaleidoscope-Prefix.pch";
 				INFOPLIST_FILE = "kaleidoscope/kaleidoscope-Info.plist";
@@ -671,6 +683,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 875F23874303488486182672 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kaleidoscope/kaleidoscope-Prefix.pch";
 				INFOPLIST_FILE = "kaleidoscope/kaleidoscope-Info.plist";
