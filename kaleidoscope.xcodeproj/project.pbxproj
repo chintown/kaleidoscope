@@ -43,6 +43,8 @@
 		844DB273173E9D000044AB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844DB254173E9D000044AB44 /* Foundation.framework */; };
 		844DB27B173E9D000044AB44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 844DB279173E9D000044AB44 /* InfoPlist.strings */; };
 		844DB27E173E9D000044AB44 /* kaleidoscopeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DB27D173E9D000044AB44 /* kaleidoscopeTests.m */; };
+		845EBF8317B5DA3600EE4EAD /* KSHeadlineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845EBF8217B5DA3600EE4EAD /* KSHeadlineCell.m */; };
+		845EBF8517B5DA4F00EE4EAD /* KSHeadlineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845EBF8417B5DA4F00EE4EAD /* KSHeadlineCell.xib */; };
 		84653E31173E9DEB001939AB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E30173E9DEB001939AB /* Default.png */; };
 		84653E33173E9DED001939AB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E32173E9DED001939AB /* Default@2x.png */; };
 		84653E35173E9DF1001939AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E34173E9DF1001939AB /* Default-568h@2x.png */; };
@@ -121,6 +123,9 @@
 		844DB27A173E9D000044AB44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		844DB27C173E9D000044AB44 /* kaleidoscopeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kaleidoscopeTests.h; sourceTree = "<group>"; };
 		844DB27D173E9D000044AB44 /* kaleidoscopeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kaleidoscopeTests.m; sourceTree = "<group>"; };
+		845EBF8117B5DA3600EE4EAD /* KSHeadlineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHeadlineCell.h; sourceTree = "<group>"; };
+		845EBF8217B5DA3600EE4EAD /* KSHeadlineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHeadlineCell.m; sourceTree = "<group>"; };
+		845EBF8417B5DA4F00EE4EAD /* KSHeadlineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSHeadlineCell.xib; sourceTree = "<group>"; };
 		84653E30173E9DEB001939AB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		84653E32173E9DED001939AB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		84653E34173E9DF1001939AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -238,6 +243,9 @@
 			children = (
 				844910BD17B5290300F31E54 /* KSHeadlineViewController.h */,
 				844910BE17B5290300F31E54 /* KSHeadlineViewController.m */,
+				845EBF8117B5DA3600EE4EAD /* KSHeadlineCell.h */,
+				845EBF8217B5DA3600EE4EAD /* KSHeadlineCell.m */,
+				845EBF8417B5DA4F00EE4EAD /* KSHeadlineCell.xib */,
 			);
 			name = LookAhead;
 			sourceTree = "<group>";
@@ -500,6 +508,7 @@
 				84397506173EAC5D008D6D85 /* KSCardViewController.xib in Resources */,
 				8439750B173EAC7B008D6D85 /* KSDetailVeiwController.xib in Resources */,
 				844910B917B5278800F31E54 /* icon-eye.png in Resources */,
+				845EBF8517B5DA4F00EE4EAD /* KSHeadlineCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +593,7 @@
 				84CC47DE1747BA1A00ACDAAF /* KSHttpClient.m in Sources */,
 				84CC47E11747BAEA00ACDAAF /* KSWebApiClient.m in Sources */,
 				844910BF17B5290300F31E54 /* KSHeadlineViewController.m in Sources */,
+				845EBF8317B5DA3600EE4EAD /* KSHeadlineCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
