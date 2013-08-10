@@ -17,6 +17,10 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];*/
+
+    UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
+    tabController.selectedIndex = KS_TAB_INDEX_LOOKAHEAD;
+
     return YES;
 }
 
