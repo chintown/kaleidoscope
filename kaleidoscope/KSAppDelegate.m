@@ -19,7 +19,7 @@
     [self.window makeKeyAndVisible];*/
 
     UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
-    tabController.selectedIndex = KS_TAB_INDEX_LOOKAHEAD;
+    tabController.selectedIndex = KS_TAB_INDEX_LOOKDOWN;
 
     return YES;
 }
