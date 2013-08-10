@@ -13,11 +13,15 @@
 + (NSMutableAttributedString *)highlightString:(NSString *)needle
                                         InText:(NSString *)stack
                                      WithColor:(UIColor *)color
-                            withHighlightColor:(UIColor *)hcolor;
+                            withHighlightColor:(UIColor *)hcolor
+                                  withFontName:(NSString *)fontName
+                                  withFontSize:(float)fontSize;
 + (NSMutableAttributedString *)highlightString:(NSString *)needle
                                         InText:(NSString *)stack
                                      WithColor:(UIColor *)color
-                           withBackgroundColor:(UIColor *)bcolor;
+                           withBackgroundColor:(UIColor *)bcolor
+                                  withFontName:(NSString *)fontName
+                                  withFontSize:(float)fontSize;
 + (UIImage *)gradientImageWithSize:(CGSize)size;
 
 @end

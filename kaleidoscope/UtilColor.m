@@ -41,18 +41,28 @@
 + (NSMutableAttributedString *)highlightString:(NSString *)needle
                                         InText:(NSString *)stack
                                      WithColor:(UIColor *)color
-                            withHighlightColor:(UIColor *)hcolor {
+                            withHighlightColor:(UIColor *)hcolor
+                                  withFontName:(NSString *)fontName
+                                  withFontSize:(float)fontSize;
+{
     NSMutableAttributedString *result = [[NSMutableAttributedString alloc] initWithString:stack];
     [result addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, stack.length)];
+    [result setAttributes:@{NSFontAttributeName:[UIFont fontWithName:fontName size:fontSize]} range:NSMakeRange(0, stack.length)];
+
     [result addAttribute:NSForegroundColorAttributeName value:hcolor range:[stack rangeOfString:needle]];
     return result;
 }
 + (NSMutableAttributedString *)highlightString:(NSString *)needle
                                         InText:(NSString *)stack
                                      WithColor:(UIColor *)color
-                            withBackgroundColor:(UIColor *)bcolor {
+                            withBackgroundColor:(UIColor *)bcolor
+                                  withFontName:(NSString *)fontName
+                                  withFontSize:(float)fontSize;
+{
     NSMutableAttributedString *result = [[NSMutableAttributedString alloc] initWithString:stack];
     [result addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, stack.length)];
+    [result setAttributes:@{NSFontAttributeName:[UIFont fontWithName:fontName size:fontSize]} range:NSMakeRange(0, stack.length)];
+
     [result addAttribute:NSBackgroundColorAttributeName value:bcolor range:[stack rangeOfString:needle]];
     return result;
 }
