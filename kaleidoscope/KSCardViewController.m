@@ -21,6 +21,8 @@
     int loadingCid;
 }
 
+@synthesize uiFlickr;
+@synthesize uiAssist;
 @synthesize card;
 
 #pragma mark - System Entry
@@ -206,6 +208,12 @@
     }
     [self presentViewController:self.backController animated:YES completion:nil];
 }
+
+- (IBAction)toggleHint:(id)sender {
+    [uiAssist setHidden:[uiFlickr isHidden]];
+    [uiFlickr setHidden:![uiFlickr isHidden]];
+}
+
 - (void)tapFlickr:(UIGestureRecognizer *)gestureRecognizer {
 //    if (!gestureRecognizer.view.tag) {
 //        [UIView animateWithDuration:0.5f animations:^{

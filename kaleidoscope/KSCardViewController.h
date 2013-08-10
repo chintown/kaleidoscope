@@ -23,9 +23,11 @@
 @property (weak, nonatomic) IBOutlet UIWebView *uiAssist;
 @property (weak, nonatomic) IBOutlet UILabel *lbPager;
 @property (weak, nonatomic) IBOutlet UIButton *btnFlip;
+@property (weak, nonatomic) IBOutlet UIButton *btnToggleHint;
 @property (nonatomic) KSDetailVeiwController *backController;
 
 - (IBAction)playSound:(id)sender;
 - (IBAction)flipCard:(id)sender;
+- (IBAction)toggleHint:(id)sender;
 
 @end

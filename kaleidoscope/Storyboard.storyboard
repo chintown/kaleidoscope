@@ -150,12 +150,12 @@
             </objects>
             <point key="canvasLocation" x="-11" y="-1527"/>
         </scene>
-        <!--Slot View Controller-->
+        <!--Slot View Controller - Item-->
         <scene sceneID="GJ0-GN-bB5">
             <objects>
                 <viewController id="1KS-ud-O3G" customClass="KSSlotViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RaC-Ca-h4t">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2CR-iZ-V0W" customClass="CTPagedScrollView"/>
@@ -163,20 +163,22 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2CR-iZ-V0W" firstAttribute="leading" secondItem="RaC-Ca-h4t" secondAttribute="leading" type="default" id="AEj-a3-Ofu"/>
-                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="top" secondItem="RaC-Ca-h4t" secondAttribute="top" constant="20" symbolic="YES" type="default" id="DDg-eO-zqR"/>
-                            <constraint firstAttribute="bottom" secondItem="2CR-iZ-V0W" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="b7X-zK-XFi"/>
+                            <constraint firstAttribute="bottom" secondItem="2CR-iZ-V0W" secondAttribute="bottom" constant="23" id="HGM-Ec-gdL"/>
+                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="top" secondItem="RaC-Ca-h4t" secondAttribute="top" constant="22" id="d2g-kz-vqf"/>
                             <constraint firstItem="2CR-iZ-V0W" firstAttribute="trailing" secondItem="RaC-Ca-h4t" secondAttribute="trailing" type="default" id="hgb-Vx-uCL"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="s0c-ec-GOT"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="NDP-dl-HGb">
-                        <barButtonItem key="rightBarButtonItem" image="item-horn" id="FDm-zz-gHr">
+                        <barButtonItem key="rightBarButtonItem" image="item-horn" id="zfT-pU-anx">
                             <connections>
-                                <action selector="playPronounce:" destination="1KS-ud-O3G" id="Li6-Nx-RCQ"/>
+                                <action selector="playPronounce:" destination="1KS-ud-O3G" id="4Ge-ea-DqZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="pronounce" destination="FDm-zz-gHr" id="8Bv-6s-Rpm"/>
                         <outlet property="scrollView" destination="2CR-iZ-V0W" id="qbp-Fg-FUQ"/>
                     </connections>
                 </viewController>
@@ -236,39 +238,6 @@
         <image name="icon-search" width="16" height="16"/>
         <image name="item-horn" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="CTPagedScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CTPagedScrollView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-            </relationships>
-        </class>
-        <class className="KSBucketsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KSBucketsViewController.h"/>
-        </class>
-        <class className="KSHeadlineViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KSHeadlineViewController.h"/>
-        </class>
-        <class className="KSLookupViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KSLookupViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="sitesbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="KSSlotViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KSSlotViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playPronounce:"/>
-                <relationship kind="outlet" name="pronounce" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="CTPagedScrollView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
