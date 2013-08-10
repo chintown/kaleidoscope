@@ -19,6 +19,7 @@ static NSString *kCid = @"cid"; // card idx
 static NSString *kCards = @"cards"; // cards data
 static NSString *kRootTab = @"root_tab";
 static NSString *kHeadlineQuery = @"headline_query";
+static NSString *kHeadline = @"headline";
 
 @implementation KSStates
 
@@ -179,6 +180,14 @@ static NSString *kHeadlineQuery = @"headline_query";
 }
 + (void) setHeadLineQuery: (NSString *) query {
     [shared setValue: query forKey: kHeadlineQuery];
+    [shared synchronize];
+}
+
++ (NSString *) getHeadline {
+    return [shared stringForKey: kHeadline];
+}
++ (void) setHeadLine: (NSString *) headline {
+    [shared setValue: headline forKey: kHeadline];
     [shared synchronize];
 }
 
