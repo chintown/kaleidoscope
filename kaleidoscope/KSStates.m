@@ -18,6 +18,7 @@ static NSString *kBid = @"bid"; // bucket id
 static NSString *kCid = @"cid"; // card idx
 static NSString *kCards = @"cards"; // cards data
 static NSString *kRootTab = @"root_tab";
+static NSString *kHeadlineQuery = @"headline_query";
 
 @implementation KSStates
 
@@ -170,6 +171,14 @@ static NSString *kRootTab = @"root_tab";
 }
 + (void) setLastRootTab: (int) tab {
     [shared setInteger: tab forKey: kRootTab];
+    [shared synchronize];
+}
+
++ (NSString *) getHeadlineQuery {
+    return [shared stringForKey: kHeadlineQuery];
+}
++ (void) setHeadLineQuery: (NSString *) query {
+    [shared setValue: query forKey: kHeadlineQuery];
     [shared synchronize];
 }
 

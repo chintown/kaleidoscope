@@ -44,4 +44,7 @@
 
 + (int) getLastRootTab;
 + (void) setLastRootTab: (int) tab;
+
++ (NSString *) getHeadlineQuery;
++ (void) setHeadLineQuery: (NSString *) query;
 @end
