@@ -135,16 +135,17 @@
                             InText:headline
                          WithColor:[UtilColor colorFromHexString:@"000000"]
                 withBackgroundColor:[UtilColor colorFromHexString:@"FFD"]
+                      withFontName:@"Verdana"
+                      withFontSize:16
          ];
-
     [cell.headline setAttributedText:coloredHeadline];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *headline = [self fetchHeadlineForIndex:indexPath.row];
-    CGSize size = [headline sizeWithFont:[UIFont systemFontOfSize:14.0]];
-    return tableView.rowHeight + size.height + 30;
+    CGSize size = [headline sizeWithFont:[UIFont fontWithName:@"Verdana" size:14]];
+    return tableView.rowHeight + size.height + 50;
 }
 
 /*
