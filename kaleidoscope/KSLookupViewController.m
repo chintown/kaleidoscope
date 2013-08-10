@@ -31,10 +31,11 @@
 
 - (void) initSitesBar: (UIToolbar *) toolbar {
     configs = @{
-      @"1.Wordnik": @"http://www.wordnik.com/words/",
-      @"4.Nciku": @"http://m.nciku.com/en/en/detail/?query=",
-      @"2.Termly": @"http://term.ly/",
-      @"3.Yahoo": @"http://tw.dictionary.search.yahoo.com/search?p="
+      @"1.Wnik": @"http://www.wordnik.com/words/",
+      @"4.Ciku": @"http://m.nciku.com/en/en/detail/?query=",
+      @"2.Term": @"http://term.ly/",
+      @"3.Y": @"http://tw.dictionary.search.yahoo.com/search?p=",
+      @"5.Web": @"http://www.google.com/search?&tbs=nws&q="
     };
     __block NSMutableArray *items = [[NSMutableArray alloc] initWithArray:[configs allValues]];
     [configs enumerateKeysAndObjectsUsingBlock:^(NSString *name, NSString *queryFmt, BOOL *STOP) {
