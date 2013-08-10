@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Mike Chen. All rights reserved.
 //
 
+#import "KSStates.h"
 #import "KSLookupViewController.h"
 
 @interface KSLookupViewController ()
@@ -69,8 +70,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    
     [self.searchBar becomeFirstResponder];
     NSString *hintQuery = [NSString stringWithFormat: @" %@ (clipboard)",
                            [self parseQueryFromClipboard]];
@@ -109,7 +108,7 @@
     [self query: sender.text];
 }
 -(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    self.tabBarController.selectedIndex = KS_TAB_INDEX_LOOKDOWN;
+    self.tabBarController.selectedIndex = [KSStates getLastRootTab];
 }
 - (void)searchBarBookmarkButtonClicked:(UISearchBar *)sender {
     NSString *normQuery = [self parseQueryFromClipboard];

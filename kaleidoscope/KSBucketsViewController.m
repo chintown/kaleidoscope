@@ -52,6 +52,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     NSLog(@"//========== view did appear @ BUCKET");
     [super viewDidAppear:animated];
+    [KSStates setLastRootTab:KS_TAB_INDEX_LOOKDOWN];
+
     [KSCardProxy delegate: self];
     [KSCardProxy queryBuckets];
 }

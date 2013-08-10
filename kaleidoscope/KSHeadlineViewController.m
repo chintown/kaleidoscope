@@ -48,6 +48,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     NSLog(@"//========== view did appear @ HEADLINE");
     [super viewDidAppear:animated];
+    [KSStates setLastRootTab:KS_TAB_INDEX_LOOKAHEAD];
+
     [KSCardProxy delegate: self];
     [KSCardProxy queryHeadline];
 }

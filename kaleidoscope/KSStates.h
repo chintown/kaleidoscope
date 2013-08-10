@@ -42,4 +42,6 @@
 + (BOOL) isLowBoundInBucket;
 + (BOOL) isUpBoundInBucket;
 
++ (int) getLastRootTab;
++ (void) setLastRootTab: (int) tab;
 @end

@@ -17,6 +17,7 @@ static NSString *kBuckets = @"buckets"; // bucket data
 static NSString *kBid = @"bid"; // bucket id
 static NSString *kCid = @"cid"; // card idx
 static NSString *kCards = @"cards"; // cards data
+static NSString *kRootTab = @"root_tab";
 
 @implementation KSStates
 
@@ -162,6 +163,14 @@ static NSString *kCards = @"cards"; // cards data
     int maxIdx = num - 1;
     BOOL isUp = ([KSStates getCid] == maxIdx);
     return isUp;
+}
+
++ (int) getLastRootTab {
+    return [shared integerForKey: kRootTab];
+}
++ (void) setLastRootTab: (int) tab {
+    [shared setInteger: tab forKey: kRootTab];
+    [shared synchronize];
 }
 
 @end
