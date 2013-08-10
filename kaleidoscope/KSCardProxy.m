@@ -11,6 +11,7 @@
 
 static id<KSCardProxyDelegate> delegate;
 
+static NSString *qHeadline = @"http://www.chintown.org:9000/headline/";
 static NSString *qBucketFmt = @"http://www.chintown.org/lookup/api.php?target=buckets";
 static NSString *qCardFmt = @"http://www.chintown.org/lookup/api.php?target=card&level=%d&sidx=%d";
 static NSString *qUpgradeFmt = @"http://www.chintown.org/lookup/api.php?target=_move&level=%d&word=%@";
@@ -130,6 +131,12 @@ static NSMutableData *resultData;
     NSLog(@" word map %@", uri);
 }
 
++ (void) queryHeadline {
+    NSString *uri = qHeadline;
+    NSMutableURLRequest *request = [KSCardProxy getRequestByUriString: uri];
+    [KSCardProxy issueRequest: request];
+    NSLog(@"headline %@", uri);
+}
 + (void) queryBuckets {
     NSString *uri = qBucketFmt;
     NSMutableURLRequest *request = [KSCardProxy getRequestByUriString: uri];
@@ -208,6 +215,8 @@ didReceiveResponse: (NSHTTPURLResponse *) response {
         [delegate proxyDidLoadFlickrWithResult: result];
     } else if ([target isEqual: @"sakunkoo"]) {
         [delegate proxyDidLoadMapWithResult: (NSString *)result];
+    } else if ([target isEqual: @"liveabc"]) {
+        [delegate proxyDidLoadHeadlineWithResult: result];
     } else {
         NSLog(@"unknow targer: %@", target);
     }

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Mike Chen. All rights reserved.
 //
 
+#import "KSStates.h"
+#import "KSCardProxy.h"
 #import "KSHeadlineViewController.h"
 
 @interface KSHeadlineViewController ()
@@ -13,6 +15,8 @@
 @end
 
 @implementation KSHeadlineViewController
+
+@synthesize dataHeadline;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +36,20 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    // pull-to-refresh mechanism
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self
+                action:@selector(triggerRefreshControl:)
+      forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"//========== view did appear @ HEADLINE");
+    [super viewDidAppear:animated];
+    [KSCardProxy delegate: self];
+    [KSCardProxy queryHeadline];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,29 +58,48 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Object Utils
+- (NSIndexPath *)fetchIndexPathFromCell:(UITableViewCell *) cell {
+    UITableView* table = (UITableView *)[cell superview];
+    NSIndexPath* path = [table indexPathForCell:cell];
+    return path;
+}
+- (void) updateHeadlineSourceWithResult: (NSDictionary *) result {
+    [KSStates setHeadlineSource:result];
+
+    [self.tableView setNeedsDisplay];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [[KSStates getHeadlineSource] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    // 1. fetch cell instance -----
+    NSString *identifier = [NSString stringWithFormat: @"headline cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:      UITableViewCellStyleDefault
+                reuseIdentifier:    identifier];
+        //[cell.textLabel setFont: [UIFont fontWithName: @"Arial" size: 17]];
+    }
+
+    // 2. setup cell display content -----
+    NSDictionary *headline = [KSStates getHeadlineSourceAtIndex: indexPath.row];
+
+    cell.textLabel.text = [headline valueForKey:@"en"];
     return cell;
 }
 
@@ -117,5 +154,41 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
+#pragma mark - NewsProxy delegate
+- (void) proxyDidLoadHeadlineWithResult: (NSDictionary *) result {
+    [self updateHeadlineSourceWithResult: result];
+}
+
+#pragma mark - RefreshControl delegate
+-(void) triggerRefreshControl:(UIRefreshControl *)refresh {
+    [self updateRefreshControl:refresh withHint:@"Refreshing data..."];
+
+    [KSCardProxy queryHeadline];
+
+    [self windupRefreshControl:refresh];
+    [refresh endRefreshing];
+
+}
+
+- (void) prepareRefreshControl: (UIRefreshControl *)refresh {
+    [self updateRefreshControl:refresh withHint:@"Pull to Refresh"];
+}
+- (void) updateRefreshControl: (UIRefreshControl *)refresh
+                     withHint:(NSString *)hint {
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString: hint];
+}
+- (void) windupRefreshControl: (UIRefreshControl *)refresh {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM d, h:mm a"];
+    NSString *lastUpdate = [NSString stringWithFormat: @"%@",
+                            [formatter stringFromDate:[NSDate date]]
+                            ];
+
+    NSString *hint = [NSString stringWithFormat: @"Last updated on %@", lastUpdate];
+    [self updateRefreshControl:refresh withHint:hint];
+}
+
 
 @end

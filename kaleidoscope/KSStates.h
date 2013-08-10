@@ -11,6 +11,10 @@
 
 @interface KSStates : NSObject
 
++ (void) setHeadlineSource: (NSDictionary *) headlines;
++ (NSArray *) getHeadlineSource;
++ (NSDictionary *) getHeadlineSourceAtIndex: (int) idx;
+
 + (NSDictionary *) initBucketSourceWithSize: (int) size;
 + (NSDictionary *) getBucketSource;
 + (NSDictionary *) getBucketSourceAtIndex: (int) idx;

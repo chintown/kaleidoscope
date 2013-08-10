@@ -11,6 +11,7 @@
 
 @protocol KSCardProxyDelegate <NSObject>
 @optional
+- (void) proxyDidLoadHeadlineWithResult: (NSDictionary *) result;
 - (void) proxyDidLoadBucketsWithResult: (NSDictionary *) result;
 - (void) proxyDidLoadCardWithResult: (NSDictionary *) result;
 - (void) proxyDidLoadFlickrWithResult: (NSDictionary *) result;
@@ -40,6 +41,7 @@
 # pragma mark BI
 + (void) queryFlickr:(NSString *)word;
 + (void) queryMap:(NSString *)word;
++ (void) queryHeadline;
 + (void) queryBuckets;
 + (void) queryCardOfBucketId: (int) bid OfCardIdx: (int) cid;
 + (void) upgradeCardWord: (NSString *)word

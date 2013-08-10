@@ -20,5 +20,5 @@
       withQuery:(NSString *)query;
 + (void)getThesaurus:(void (^)(NSString *result))callback
            withQuery:(NSString *)query;
-
++ (void)getHeadline:(void (^)(NSMutableArray *result))callback;
 @end

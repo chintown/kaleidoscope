@@ -12,6 +12,7 @@
 // static vars
 static NSUserDefaults *shared;
 // keys for accessing data in NSUserDefaults
+static NSString *kHeadlines = @"headlines"; // headline
 static NSString *kBuckets = @"buckets"; // bucket data
 static NSString *kBid = @"bid"; // bucket id
 static NSString *kCid = @"cid"; // card idx
@@ -22,6 +23,25 @@ static NSString *kCards = @"cards"; // cards data
 + (void) initialize {
     NSLog(@"[initialize @ KSStates] (should be once)");
     shared = [NSUserDefaults standardUserDefaults];
+}
+
++ (void) setHeadlineSource: (NSArray *) headlines {
+    NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject: headlines];
+    [shared setObject: (NSObject *) encoded
+               forKey: kHeadlines];
+    [shared synchronize];
+}
++ (NSArray *) getHeadlineSource {
+    NSData *encoded = [shared objectForKey:kHeadlines];
+    NSArray *headlines = [NSKeyedUnarchiver unarchiveObjectWithData: encoded];
+
+    if (headlines == nil) {
+        headlines = [[NSMutableArray alloc] init];
+    }
+    return headlines;
+}
++ (NSDictionary *) getHeadlineSourceAtIndex: (int) idx {
+    return [[self getHeadlineSource] objectAtIndex: idx];
 }
 
 + (NSDictionary *) initBucketSourceWithSize:(int)size {

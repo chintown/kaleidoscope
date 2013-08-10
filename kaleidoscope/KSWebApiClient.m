@@ -80,4 +80,12 @@
     }];
 }
 
++ (void)getHeadline:(void (^)(NSMutableArray *))callback {
+    NSString *uri = [NSString stringWithFormat:@"headline/"];
+    NSDictionary *params = nil;
+    [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
+        callback([result valueForKey:@"result"]);
+    }];
+}
+
 @end
