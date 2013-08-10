@@ -36,7 +36,7 @@
                             <constraint firstItem="yjO-LP-4Xb" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" type="default" id="sxe-GV-9b4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Look Up" image="icon-search.png" id="mPg-mI-R8f"/>
+                    <tabBarItem key="tabBarItem" title="Look Up" image="icon-search" id="mPg-mI-R8f"/>
                     <connections>
                         <outlet property="searchBar" destination="vu8-E0-Gnd" id="d43-7Z-gqf"/>
                         <outlet property="searchDisplayController" destination="5Qa-Ud-ewo" id="rkx-tX-qWT"/>
@@ -86,7 +86,7 @@
         <scene sceneID="2lV-HY-hYq">
             <objects>
                 <navigationController id="1K0-iH-0QJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Look Ahead" image="icon-eye.png" id="tcq-dq-0xl"/>
+                    <tabBarItem key="tabBarItem" title="Look Ahead" image="icon-eye" id="tcq-dq-0xl"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="VtX-ib-InW">
@@ -208,7 +208,7 @@
         <scene sceneID="c9C-3y-MtO">
             <objects>
                 <navigationController id="CLe-bS-4io" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Look Down" image="icon-inbox.png" id="S3L-Xk-aAC"/>
+                    <tabBarItem key="tabBarItem" title="Look Down" image="icon-inbox" id="S3L-Xk-aAC"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
@@ -231,9 +231,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-eye.png" width="30" height="30"/>
-        <image name="icon-inbox.png" width="30" height="30"/>
-        <image name="icon-search.png" width="30" height="30"/>
+        <image name="icon-eye" width="16" height="16"/>
+        <image name="icon-inbox" width="16" height="16"/>
+        <image name="icon-search" width="16" height="16"/>
         <image name="item-horn" width="16" height="16"/>
     </resources>
     <classes>
