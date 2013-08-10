@@ -116,8 +116,12 @@
     
     [self query: sender.text];
 }
--(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    self.tabBarController.selectedIndex = [KSStates getLastRootTab];
+-(void) searchBarCancelButtonClicked:(UISearchBar *)sender {
+    if (![sender.text isEqualToString: @""]) {
+        [sender resignFirstResponder];
+    } else {
+        self.tabBarController.selectedIndex = [KSStates getLastRootTab];
+    }
 }
 - (void)searchBarBookmarkButtonClicked:(UISearchBar *)sender {
     NSString *normQuery = [self parseQueryFromClipboard];
