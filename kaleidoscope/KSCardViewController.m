@@ -260,11 +260,29 @@
 }
 - (void) confidentSwip {
     NSLog(@"confident");
-    [KSCardProxy upgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+
+    /**************************************************************************/
+    [UIView animateWithDuration:.3
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [UtilUI updateView:self.view onPositionY:self.view.frame.size.height * 1.5];
+                     }
+                     completion:nil];
+//    [KSCardProxy upgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
 }
 - (void) unconfidentSwip {
     NSLog(@"unconfident");
-    [KSCardProxy downgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+
+    /**************************************************************************/
+    [UIView animateWithDuration:.3
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [UtilUI updateView:self.view onPositionY:-self.view.frame.size.height * 1.5];
+                     }
+                     completion:nil];
+//    [KSCardProxy downgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
 }
 
 @end
