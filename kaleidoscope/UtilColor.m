@@ -38,6 +38,25 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
++ (NSMutableAttributedString *)highlightString:(NSString *)needle
+                                        InText:(NSString *)stack
+                                     WithColor:(UIColor *)color
+                            withHighlightColor:(UIColor *)hcolor {
+    NSMutableAttributedString *result = [[NSMutableAttributedString alloc] initWithString:stack];
+    [result addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, stack.length)];
+    [result addAttribute:NSForegroundColorAttributeName value:hcolor range:[stack rangeOfString:needle]];
+    return result;
+}
++ (NSMutableAttributedString *)highlightString:(NSString *)needle
+                                        InText:(NSString *)stack
+                                     WithColor:(UIColor *)color
+                            withBackgroundColor:(UIColor *)bcolor {
+    NSMutableAttributedString *result = [[NSMutableAttributedString alloc] initWithString:stack];
+    [result addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, stack.length)];
+    [result addAttribute:NSBackgroundColorAttributeName value:bcolor range:[stack rangeOfString:needle]];
+    return result;
+}
+
 // http://stackoverflow.com/questions/1266179/how-do-i-add-a-gradient-to-the-text-of-a-uilabel-but-not-the-background
 + (UIImage *)gradientImageWithSize:(CGSize)size {
     CGFloat width = size.width;         // max 1024 due to Core Graphics limitations
