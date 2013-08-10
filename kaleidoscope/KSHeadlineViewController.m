@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Mike Chen. All rights reserved.
 //
 
+#import "UtilColor.h"
 #import "KSStates.h"
+#import "KSHeadlineCell.h"
 #import "KSCardProxy.h"
 #import "KSHeadlineViewController.h"
 
@@ -75,6 +77,25 @@
 
 #pragma mark - Table view data source
 
+- (NSString *)fetchHeadlineForIndex:(int)index {
+    NSDictionary *headline = [KSStates getHeadlineSourceAtIndex: index];
+    NSString *selected = [headline valueForKey:@"en"];
+    return selected;
+}
+- (NSString *)fetchHighlightForIndex:(int)index {
+    NSDictionary *headline = [KSStates getHeadlineSourceAtIndex: index];
+    NSString *selected = [headline valueForKey:@"en_highlight"];
+    return selected;
+}
+
+- (NSString *)fetchSubTextForIndex:(int)index {
+    NSDictionary *headline = [KSStates getHeadlineSourceAtIndex: index];
+    return [NSString stringWithFormat:@"%@ - %@",
+            [headline valueForKey:@"timestamp"],
+            [headline valueForKey:@"provider"]
+            ];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -89,20 +110,41 @@
 {
     // 1. fetch cell instance -----
     NSString *identifier = [NSString stringWithFormat: @"headline cell"];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    KSHeadlineCell *cell = (KSHeadlineCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
 
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:      UITableViewCellStyleDefault
-                reuseIdentifier:    identifier];
+//        cell = [[UITableViewCell alloc]
+//                initWithStyle:      UITableViewCellStyleDefault
+//                reuseIdentifier:    identifier];
         //[cell.textLabel setFont: [UIFont fontWithName: @"Arial" size: 17]];
+
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"KSHeadlineCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[KSHeadlineCell class]]) {
+                cell = (KSHeadlineCell *)currentObject;
+                break;
+            }
+        }
     }
 
-    // 2. setup cell display content -----
-    NSDictionary *headline = [KSStates getHeadlineSourceAtIndex: indexPath.row];
+    cell.subText.text = [self fetchSubTextForIndex:indexPath.row];
+    NSString *headline = [self fetchHeadlineForIndex:indexPath.row];
+    NSString *highlight = [self fetchHighlightForIndex:indexPath.row];
+    NSMutableAttributedString *coloredHeadline =
+        [UtilColor highlightString:highlight
+                            InText:headline
+                         WithColor:[UtilColor colorFromHexString:@"000000"]
+                withBackgroundColor:[UtilColor colorFromHexString:@"FFD"]
+         ];
 
-    cell.textLabel.text = [headline valueForKey:@"en"];
+    [cell.headline setAttributedText:coloredHeadline];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *headline = [self fetchHeadlineForIndex:indexPath.row];
+    CGSize size = [headline sizeWithFont:[UIFont systemFontOfSize:14.0]];
+    return tableView.rowHeight + size.height + 30;
 }
 
 /*
