@@ -19,6 +19,7 @@
 @implementation KSHeadlineViewController
 
 @synthesize dataHeadline;
+@synthesize toggleLookup;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,7 +46,7 @@
             initWithTarget:self
             action:@selector(didLongPress:)
          ];
-    lpgr.minimumPressDuration = 0.8; //seconds
+    lpgr.minimumPressDuration = 0.4; //seconds
     lpgr.delegate = self;
     [self.tableView addGestureRecognizer:lpgr];
 
@@ -84,17 +85,30 @@
     [self.tableView setNeedsDisplay];
     [self.tableView reloadData];
 }
+- (BOOL)isCellToggled:(int)index {
+    NSString *key = [NSString stringWithFormat:@"%d", index];
+    NSNumber *isToggled = [toggleLookup valueForKey:key];
+    return isToggled != nil && [isToggled boolValue] == YES;
+}
+- (void)toggleCell:(int)index {
+    NSString *key = [NSString stringWithFormat:@"%d", index];
+    NSNumber *isToggled = [toggleLookup valueForKey:key];
+    isToggled = [NSNumber numberWithBool: ![isToggled boolValue]];
+    [toggleLookup setValue:isToggled forKey:key];
+//    de(toggleLookup);
+//    de([self isCellToggled:0] ? @"YES" : @"NO");
+}
 
 #pragma mark - Table view data source
 
-- (NSString *)fetchHeadlineForIndex:(int)index {
+- (NSString *)fetchHeadlineForIndex:(int)index withLang:(NSString *)lang {
     NSDictionary *headline = [KSStates getHeadlineSourceAtIndex: index];
-    NSString *selected = [headline valueForKey:@"en"];
+    NSString *selected = [headline valueForKey:lang];
     return selected;
 }
-- (NSString *)fetchHighlightForIndex:(int)index {
+- (NSString *)fetchHighlightForIndex:(int)index withLang:(NSString *)lang {
     NSDictionary *headline = [KSStates getHeadlineSourceAtIndex: index];
-    NSString *selected = [headline valueForKey:@"en_highlight"];
+    NSString *selected = [headline valueForKey:[NSString stringWithFormat:@"%@_highlight", lang]];
     return selected;
 }
 
@@ -137,9 +151,12 @@
         }
     }
 
+    BOOL isToggled = [self isCellToggled:indexPath.row];
+    NSString *lang = isToggled ? @"ch" : @"en";
+
     cell.subText.text = [self fetchSubTextForIndex:indexPath.row];
-    NSString *headline = [self fetchHeadlineForIndex:indexPath.row];
-    NSString *highlight = [self fetchHighlightForIndex:indexPath.row];
+    NSString *headline = [self fetchHeadlineForIndex:indexPath.row withLang:lang];
+    NSString *highlight = [self fetchHighlightForIndex:indexPath.row withLang:lang];
     NSMutableAttributedString *coloredHeadline =
         [UtilColor highlightString:highlight
                             InText:headline
@@ -153,7 +170,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *headline = [self fetchHeadlineForIndex:indexPath.row];
+    BOOL isToggled = [self isCellToggled:indexPath.row];
+    NSString *lang = isToggled ? @"ch" : @"en";
+    NSString *headline = [self fetchHeadlineForIndex:indexPath.row withLang:lang];
     CGSize size = [headline sizeWithFont:[UIFont fontWithName:@"Verdana" size:14]];
     return tableView.rowHeight + size.height + 50;
 }
@@ -208,9 +227,9 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    NSString *query = [self fetchHighlightForIndex:indexPath.row];
-    [KSStates setHeadLineQuery:query];
-    self.tabBarController.selectedIndex = KS_TAB_INDEX_LOOKUP;
+    [self toggleCell:indexPath.row];
+    [self.tableView setNeedsDisplay];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Long press delegate
@@ -223,13 +242,15 @@
         return;
     }
 
-    NSString *query = [self fetchHighlightForIndex:indexPath.row];
+    NSString *query = [self fetchHighlightForIndex:indexPath.row
+                                          withLang:@"en"];
     [KSStates setHeadLineQuery:query];
     self.tabBarController.selectedIndex = KS_TAB_INDEX_LOOKUP;
 }
 
 #pragma mark - NewsProxy delegate
 - (void) proxyDidLoadHeadlineWithResult: (NSDictionary *) result {
+    toggleLookup = [[NSMutableDictionary alloc] init];
     [self updateHeadlineSourceWithResult: result];
 }
 

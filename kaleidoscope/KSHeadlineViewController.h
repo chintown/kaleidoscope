@@ -11,5 +11,6 @@
 @interface KSHeadlineViewController : UITableViewController<KSCardProxyDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) NSDictionary *dataHeadline;
+@property (nonatomic) NSMutableDictionary *toggleLookup;
 
 @end
