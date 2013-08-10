@@ -244,7 +244,9 @@
 
     NSString *query = [self fetchHighlightForIndex:indexPath.row
                                           withLang:@"en"];
+    NSString *headline = [self fetchHeadlineForIndex:indexPath.row withLang:@"en"];
     [KSStates setHeadLineQuery:query];
+    [KSStates setHeadLine:headline];
     self.tabBarController.selectedIndex = KS_TAB_INDEX_LOOKUP;
 }
 

@@ -76,10 +76,11 @@
     self.searchBar.placeholder = hintQuery;
 
     NSString *query = [KSStates getHeadlineQuery];
+    NSString *headline = [KSStates getHeadline];
     if (query != nil) {
         searchBar.text = query;
         //[searchBar becomeFirstResponder];
-        [self query: query];
+        [self query:query withSentence:headline];
         [searchBar resignFirstResponder];
         [KSStates setHeadLineQuery:nil];
     }
@@ -136,6 +137,19 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:root]];
     
+    [self.webView loadRequest:request];
+}
+
+-(void) query: (NSString *) term withSentence:(NSString *) sentence{
+    sentence = [sentence stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *root = [NSString stringWithFormat:@"http://www.chintown.org/lookup/?query=%@&sentence=%@",
+                      term,
+                      sentence
+                      ];
+    ;
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:root]];
+
     [self.webView loadRequest:request];
 }
 

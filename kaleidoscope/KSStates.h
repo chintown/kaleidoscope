@@ -47,4 +47,7 @@
 
 + (NSString *) getHeadlineQuery;
 + (void) setHeadLineQuery: (NSString *) query;
+
++ (NSString *) getHeadline;
++ (void) setHeadLine: (NSString *) headline;
 @end
