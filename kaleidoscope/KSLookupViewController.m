@@ -74,6 +74,15 @@
     NSString *hintQuery = [NSString stringWithFormat: @" %@ (clipboard)",
                            [self parseQueryFromClipboard]];
     self.searchBar.placeholder = hintQuery;
+
+    NSString *query = [KSStates getHeadlineQuery];
+    if (query != nil) {
+        searchBar.text = query;
+        //[searchBar becomeFirstResponder];
+        [self query: query];
+        [searchBar resignFirstResponder];
+        [KSStates setHeadLineQuery:nil];
+    }
 }
 
 

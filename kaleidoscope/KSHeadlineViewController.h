@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSHeadlineViewController : UITableViewController<KSCardProxyDelegate>
+@interface KSHeadlineViewController : UITableViewController<KSCardProxyDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) NSDictionary *dataHeadline;
 

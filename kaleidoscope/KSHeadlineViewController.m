@@ -39,6 +39,16 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
+    // long press handler
+    UILongPressGestureRecognizer *lpgr =
+        [[UILongPressGestureRecognizer alloc]
+            initWithTarget:self
+            action:@selector(didLongPress:)
+         ];
+    lpgr.minimumPressDuration = 0.8; //seconds
+    lpgr.delegate = self;
+    [self.tableView addGestureRecognizer:lpgr];
+
     // pull-to-refresh mechanism
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     [refresh addTarget:self
@@ -198,8 +208,25 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    NSString *query = [self fetchHighlightForIndex:indexPath.row];
+    [KSStates setHeadLineQuery:query];
+    self.tabBarController.selectedIndex = KS_TAB_INDEX_LOOKUP;
 }
 
+#pragma mark - Long press delegate
+-(void)didLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {
+    CGPoint p = [gestureRecognizer locationInView:self.tableView];
+
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+        NSLog(@"long press on table view but not on a row");
+        return;
+    }
+
+    NSString *query = [self fetchHighlightForIndex:indexPath.row];
+    [KSStates setHeadLineQuery:query];
+    self.tabBarController.selectedIndex = KS_TAB_INDEX_LOOKUP;
+}
 
 #pragma mark - NewsProxy delegate
 - (void) proxyDidLoadHeadlineWithResult: (NSDictionary *) result {
