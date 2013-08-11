@@ -82,6 +82,9 @@
     // appear might be slightly appear but not focus
 
     // GET CURRENT CONTEXT
+//    de(@"card did load");
+//    [KSStates inspectCards];
+
     int bid = [KSStates getBid];
     NSDictionary *bucket = [KSStates getBucketSourceAtIndex:bid - 1]; // id is idx + 1
     loadingCid = [KSStates getCidAmongLastRefWithOffset:self.view.tag];
@@ -208,7 +211,6 @@
     }
     [self presentViewController:self.backController animated:YES completion:nil];
 }
-
 - (IBAction)toggleHint:(id)sender {
     [uiAssist setHidden:[uiFlickr isHidden]];
     [uiFlickr setHidden:![uiFlickr isHidden]];
@@ -277,7 +279,17 @@
                          [UtilUI updateView:self.view onPositionY:self.view.frame.size.height * 1.5];
                      }
                      completion:nil];
-//    [KSCardProxy upgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+
+    int currentCid = [KSStates getCid];
+    int nextCid = [KSStates nextCidAfteRemoveCid:currentCid];
+
+    [KSStates removeCardSourceAtIndex:currentCid];
+    [KSStates updateLastCid:nextCid];
+    [KSStates setCid:nextCid];
+    [KSStates updateBucketSize];
+
+    [KSCardProxy upgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+    [self.delegate didCardRemoved:currentCid];
 }
 - (void) unconfidentSwip {
     NSLog(@"unconfident");
@@ -290,7 +302,16 @@
                          [UtilUI updateView:self.view onPositionY:-self.view.frame.size.height * 1.5];
                      }
                      completion:nil];
-//    [KSCardProxy downgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+    int currentCid = [KSStates getCid];
+    int nextCid = [KSStates nextCidAfteRemoveCid:currentCid];
+
+    [KSStates removeCardSourceAtIndex:currentCid];
+    [KSStates updateLastCid:nextCid];
+    [KSStates setCid:nextCid];
+    [KSStates updateBucketSize];
+
+    [KSCardProxy downgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+    [self.delegate didCardRemoved:currentCid];
 }
 
 @end
