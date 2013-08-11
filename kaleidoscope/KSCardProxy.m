@@ -14,6 +14,7 @@ static id<KSCardProxyDelegate> delegate;
 static NSString *qHeadline = @"http://www.chintown.org:9000/headline/";
 static NSString *qBucketFmt = @"http://www.chintown.org/lookup/api.php?target=buckets";
 static NSString *qCardFmt = @"http://www.chintown.org/lookup/api.php?target=card&level=%d&sidx=%d";
+static NSString *qJumpFmt = @"http://www.chintown.org/lookup/api.php?target=_jump&level=%d&sidx=%d";
 static NSString *qUpgradeFmt = @"http://www.chintown.org/lookup/api.php?target=_move&level=%d&word=%@";
 static NSString *qDowngradeFmt = @"http://www.chintown.org/lookup/api.php?target=_reset&level=%d&word=%@";
 static NSString *gPronunciationFmt = @"http://www.gstatic.com/dictionary/static/sounds/lf/0/%@/%@#_us_1.mp3";
@@ -148,6 +149,13 @@ static NSMutableData *resultData;
     NSMutableURLRequest *request = [KSCardProxy getRequestByUriString: uri];
     [KSCardProxy issueRequest: request];
     NSLog(@"card %@", uri);
+}
++ (void) jumpToCard:(int) cid
+         fromBucket: (int) bid {
+    NSString *uri = [NSString stringWithFormat: qJumpFmt, bid, cid];
+    NSMutableURLRequest *request = [KSCardProxy getRequestByUriString: uri];
+    [KSCardProxy issueRequest: request];
+    NSLog(@"jump %@", uri);
 }
 + (void) upgradeCardWord: (NSString *)word
               fromBucket: (int) bid {

@@ -44,6 +44,8 @@
 + (void) queryHeadline;
 + (void) queryBuckets;
 + (void) queryCardOfBucketId: (int) bid OfCardIdx: (int) cid;
++ (void) jumpToCard:(int) cid
+         fromBucket: (int) bid;
 + (void) upgradeCardWord: (NSString *)word
               fromBucket: (int) bid;
 + (void) downgradeCardWord: (NSString *)word
