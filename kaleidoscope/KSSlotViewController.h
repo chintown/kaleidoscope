@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KSCardViewController.h"
 #import "CTPagedScrollView.h"
 
-@interface KSSlotViewController : UIViewController<CTPagedScrollViewDataSource>
+@interface KSSlotViewController : UIViewController<CTPagedScrollViewDataSource, KSCardViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet CTPagedScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *pronounce;
 - (IBAction)playPronounce:(id)sender;

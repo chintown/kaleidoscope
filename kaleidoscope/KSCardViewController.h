@@ -10,8 +10,15 @@
 #import "KSCardProxy.h"
 #import "KSDetailVeiwController.h"
 
+@protocol KSCardViewControllerDelegate <NSObject>
+- (void)didCardRemoved:(int)index;
+@end
+
+
 @interface KSCardViewController : UIViewController
                                 <KSCardProxyDelegate, KSCardbackDelegate>
+
+@property (nonatomic, strong) id<KSCardViewControllerDelegate> delegate;
 
 @property (nonatomic) KSCard *card;
 

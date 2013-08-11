@@ -152,6 +152,7 @@
         NSLog(@"[O] (NEW) page for index %d", pageIndex);
         ////page = [self newPageView];
         KSCardViewController *pageController = [self newPageViewController];
+        pageController.delegate = self;
 
         [self addChildViewController: pageController];
         page = pageController.view;
@@ -176,6 +177,16 @@
 }
 - (int) currentIndex {
     return [KSStates getCid];
+}
+
+#pragma mark - Card View Delegate
+- (void)didCardRemoved:(int)index {
+    de([NSString stringWithFormat:@"%d card removed", index]);
+//    [self.scrollView updateVisibleBoundToPositionOfCurrentIndex];
+//    [self.scrollView layoutSubviews];
+    [self.scrollView initInternals];
+    self.scrollView.dataSource = nil;
+    [self viewDidLoad];
 }
 
 # pragma mark IB delegate
