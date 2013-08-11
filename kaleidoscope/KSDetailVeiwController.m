@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import "KSStates.h"
 #import "KSWebApiClient.h"
 #import "KSCard.h"
 #import "KSDetailVeiwController.h"
@@ -99,6 +100,14 @@
 }
 
 - (IBAction)flipCard:(id)sender {
+    [self.delegate cardbackDidFinish:self];
+}
+
+- (IBAction)queryCard:(id)sender {
+    NSString *query = [self.delegate getCard].word;
+    [KSStates setHeadLineQuery:query];
+    [KSStates setHeadLine:nil];
+    [((UIViewController *)self.delegate) parentViewController].tabBarController.selectedIndex = KS_TAB_INDEX_LOOKUP;
     [self.delegate cardbackDidFinish:self];
 }
 @end

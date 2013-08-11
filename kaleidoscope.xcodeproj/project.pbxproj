@@ -54,6 +54,8 @@
 		84653E35173E9DF1001939AB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E34173E9DF1001939AB /* Default-568h@2x.png */; };
 		84653E3D173E9F82001939AB /* app.icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E3C173E9F82001939AB /* app.icon@2x.png */; };
 		84653E3F173E9F86001939AB /* app.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84653E3E173E9F86001939AB /* app.icon.png */; };
+		8470A02717B7E5F00089CA38 /* icon-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 8470A02617B7E5F00089CA38 /* icon-refresh.png */; };
+		8470A02917B7E9470089CA38 /* icon-web.png in Resources */ = {isa = PBXBuildFile; fileRef = 8470A02817B7E9470089CA38 /* icon-web.png */; };
 		848132541763AD4700EDCF20 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848132531763AD4700EDCF20 /* CFNetwork.framework */; };
 		84CC47D61747B9BF00ACDAAF /* UtilColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47CB1747B9BF00ACDAAF /* UtilColor.m */; };
 		84CC47D71747B9BF00ACDAAF /* UtilConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC47CD1747B9BF00ACDAAF /* UtilConfig.m */; };
@@ -139,6 +141,8 @@
 		84653E34173E9DF1001939AB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		84653E3C173E9F82001939AB /* app.icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app.icon@2x.png"; path = "../app.icon@2x.png"; sourceTree = "<group>"; };
 		84653E3E173E9F86001939AB /* app.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app.icon.png; path = ../app.icon.png; sourceTree = "<group>"; };
+		8470A02617B7E5F00089CA38 /* icon-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-refresh.png"; path = "images/icon-refresh.png"; sourceTree = "<group>"; };
+		8470A02817B7E9470089CA38 /* icon-web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-web.png"; path = "images/icon-web.png"; sourceTree = "<group>"; };
 		848132511763AD1700EDCF20 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "/Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<absolute>"; };
 		848132531763AD4700EDCF20 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		84CC47C51747B57400ACDAAF /* VersionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionCheck.h; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 		84653E38173E9E2E001939AB /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				8470A02817B7E9470089CA38 /* icon-web.png */,
+				8470A02617B7E5F00089CA38 /* icon-refresh.png */,
 				8402745717B694FC00EF2C49 /* icon-flash.png */,
 				8402745817B694FC00EF2C49 /* icon-inbox@2x.png */,
 				8402745917B694FC00EF2C49 /* icon-eye@2x.png */,
@@ -525,6 +531,8 @@
 				8402745C17B694FC00EF2C49 /* icon-inbox@2x.png in Resources */,
 				8402745D17B694FC00EF2C49 /* icon-eye@2x.png in Resources */,
 				8402745E17B694FC00EF2C49 /* icon-search@2x.png in Resources */,
+				8470A02717B7E5F00089CA38 /* icon-refresh.png in Resources */,
+				8470A02917B7E9470089CA38 /* icon-web.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

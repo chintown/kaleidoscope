@@ -219,6 +219,12 @@
     [uiFlickr setHidden:![uiFlickr isHidden]];
 }
 
+- (IBAction)refreshCard:(id)sender {
+    [KSWebApiClient getCard:^(NSDictionary *result) {
+        [self proxyDidLoadCardWithResult:result];
+    } OfBucketId:[KSStates getBid] OfCardIdx:[KSStates getCid]];
+}
+
 - (void)tapFlickr:(UIGestureRecognizer *)gestureRecognizer {
 //    if (!gestureRecognizer.view.tag) {
 //        [UIView animateWithDuration:0.5f animations:^{

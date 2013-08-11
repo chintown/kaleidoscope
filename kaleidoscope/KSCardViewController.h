@@ -31,10 +31,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbPager;
 @property (weak, nonatomic) IBOutlet UIButton *btnFlip;
 @property (weak, nonatomic) IBOutlet UIButton *btnToggleHint;
+@property (weak, nonatomic) IBOutlet UIButton *btnRefresh;
 @property (nonatomic) KSDetailVeiwController *backController;
 
 - (IBAction)playSound:(id)sender;
 - (IBAction)flipCard:(id)sender;
+- (IBAction)refreshCard:(id)sender;
 - (IBAction)toggleHint:(id)sender;
 
 @end

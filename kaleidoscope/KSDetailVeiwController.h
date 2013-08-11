@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) id <KSCardbackDelegate> delegate;
 
+@property (weak, nonatomic) IBOutlet UIButton *uiQeury;
+
 @property (weak, nonatomic) IBOutlet UIImageView *uiMap;
 @property (weak, nonatomic) IBOutlet UITextView *uiMeaning;
 @property (weak, nonatomic) IBOutlet UIWebView *uiDefinition;
@@ -28,5 +30,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnFlip;
 - (IBAction)flipCard:(id)sender;
+- (IBAction)queryCard:(id)sender;
 
 @end
