@@ -105,8 +105,11 @@
         [self setViewContentWithCardIndex:loadingCid];
     } else {
         NSLog(@"        [C] downloading bid=%d cid=%d (%d + %d) ...", bid, loadingCid, loadingCid-self.view.tag, self.view.tag);
-        [KSCardProxy queryCardOfBucketId:bid
-                               OfCardIdx:loadingCid];
+//        [KSCardProxy queryCardOfBucketId:bid
+//                               OfCardIdx:loadingCid];
+        [KSWebApiClient getCard:^(NSDictionary *result) {
+            [self proxyDidLoadCardWithResult:result];
+        } OfBucketId:bid OfCardIdx:loadingCid];
     }
 }
 - (void)didReceiveMemoryWarning {

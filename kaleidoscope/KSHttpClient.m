@@ -12,7 +12,7 @@
 @implementation KSHttpClient
 
 static NSString * const rootNodeApi = @"http://www.chintown.org:9000/";
-static NSString * const rootPhpApi = @"http://www.chintown.org/lookup/api.php";
+static NSString * const rootPhpApi = @"http://www.chintown.org/lookup/";
 
 + (KSHttpClient *)sharedClient {
     static KSHttpClient *_sharedClient = nil;

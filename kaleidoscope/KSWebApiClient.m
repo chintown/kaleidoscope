@@ -108,10 +108,19 @@
 
 
 + (void)getBucket:(void (^)(NSDictionary *result))callback {
-    NSString *uri = [NSString stringWithFormat:@"?target=buckets"];
+    NSString *uri = [NSString stringWithFormat:@"api.php?target=buckets"];
     NSDictionary *params = nil;
     [KSWebApiClient phpDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
-        callback([result valueForKey:@"result"]);
+
+        callback([[NSMutableDictionary alloc] initWithDictionary:[result valueForKey:@"result"]]);
+    }];
+}
++ (void)getCard:(void (^)(NSDictionary *result))callback OfBucketId:(int)bid OfCardIdx:(int)cid {
+    NSString *uri = [NSString stringWithFormat:@"api.php?target=card&level=%d&sidx=%d", bid, cid];
+    NSDictionary *params = nil;
+    [KSWebApiClient phpDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
+
+        callback([[NSMutableDictionary alloc] initWithDictionary:[result valueForKey:@"result"]]);
     }];
 }
 

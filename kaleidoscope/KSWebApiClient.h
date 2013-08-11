@@ -24,4 +24,5 @@
 
 
 + (void)getBucket:(void (^)(NSDictionary *result))callback;
++ (void)getCard:(void (^)(NSDictionary *result))callback OfBucketId:(int)bid OfCardIdx:(int)cid;
 @end
