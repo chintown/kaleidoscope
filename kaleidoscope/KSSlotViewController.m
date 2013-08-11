@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import "KSWebApiClient.h"
 #import "KSCard.h"
 #import "KSSlotViewController.h"
 #import "KSCardViewController.h"
@@ -173,7 +174,8 @@
 }
 - (void) scollDidLandOnPageWithIndex: (int) pageIndex {
     int landCid = [KSStates updateCidAmongLastRefWithOffset:pageIndex];
-    [KSCardProxy jumpToCard:landCid fromBucket:[KSStates getBid]];
+//    [KSCardProxy jumpToCard:landCid fromBucket:[KSStates getBid]];
+    [KSWebApiClient jumpToCard:landCid fromBucket:[KSStates getBid]];
     NSLog(@"[O] land on cid %d. update KStates. %d", landCid, pageIndex);
 }
 - (int) currentIndex {

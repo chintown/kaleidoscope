@@ -47,6 +47,21 @@
      }
      ];
 }
++ (void)phpUri:(NSString *)uri
+    withParams:(NSDictionary *)params{
+    [XHttpClient2 getPath:uri
+               parameters:params
+                  success:^(AFHTTPRequestOperation *operation, id JSON) // raw result
+     {
+        // success
+     }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+        // fail
+        de(error);
+     }
+     ];
+}
 
 
 # pragma mark - Publics
@@ -122,6 +137,25 @@
 
         callback([[NSMutableDictionary alloc] initWithDictionary:[result valueForKey:@"result"]]);
     }];
+}
++ (void) jumpToCard:(int) cid
+         fromBucket: (int) bid {
+    NSString *uri = [NSString stringWithFormat:@"api.php?target=_jump&level=%d&sidx=%d", bid, cid];
+    NSDictionary *params = nil;
+    [KSWebApiClient phpUri:uri withParams:params];
+
+}
++ (void) upgradeCardWord: (NSString *)word
+              fromBucket: (int) bid {
+    NSString *uri = [NSString stringWithFormat:@"api.php?target=_move&level=%d&word=%@", bid, word];
+    NSDictionary *params = nil;
+    [KSWebApiClient phpUri:uri withParams:params];
+}
++ (void) downgradeCardWord: (NSString *)word
+                fromBucket: (int) bid {
+    NSString *uri = [NSString stringWithFormat:@"api.php?target=_reset&level=%d&word=%@", bid, word];
+    NSDictionary *params = nil;
+    [KSWebApiClient phpUri:uri withParams:params];
 }
 
 @end

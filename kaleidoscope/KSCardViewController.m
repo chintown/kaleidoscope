@@ -291,7 +291,8 @@
     [KSStates setCid:nextCid];
     [KSStates updateBucketSize];
 
-    [KSCardProxy upgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+//    [KSCardProxy upgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+    [KSWebApiClient upgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
     [self.delegate didCardRemoved:currentCid];
 }
 - (void) unconfidentSwip {
@@ -313,7 +314,8 @@
     [KSStates setCid:nextCid];
     [KSStates updateBucketSize];
 
-    [KSCardProxy downgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+//    [KSCardProxy downgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
+    [KSWebApiClient downgradeCardWord:self.lbTitle.text fromBucket:[KSStates getBid]];
     [self.delegate didCardRemoved:currentCid];
 }
 
