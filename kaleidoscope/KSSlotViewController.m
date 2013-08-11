@@ -173,6 +173,7 @@
 }
 - (void) scollDidLandOnPageWithIndex: (int) pageIndex {
     int landCid = [KSStates updateCidAmongLastRefWithOffset:pageIndex];
+    [KSCardProxy jumpToCard:landCid fromBucket:[KSStates getBid]];
     NSLog(@"[O] land on cid %d. update KStates. %d", landCid, pageIndex);
 }
 - (int) currentIndex {
