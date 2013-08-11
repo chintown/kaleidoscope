@@ -29,6 +29,24 @@
      }
      ];
 }
++ (void)phpDictionaryFromUri:(NSString *)uri
+                  withParams:(NSDictionary *)params
+                withCallback:(void (^)(NSMutableDictionary *result))callback {
+    [XHttpClient2 getPath:uri
+              parameters:params
+                 success:^(AFHTTPRequestOperation *operation, id JSON) // raw result
+     {
+         if (callback) {
+             callback(JSON);
+         }
+     }
+                 failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         de(error);
+         callback(nil);
+     }
+     ];
+}
 
 
 # pragma mark - Publics
@@ -84,6 +102,15 @@
     NSString *uri = [NSString stringWithFormat:@"headline/"];
     NSDictionary *params = nil;
     [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
+        callback([result valueForKey:@"result"]);
+    }];
+}
+
+
++ (void)getBucket:(void (^)(NSDictionary *result))callback {
+    NSString *uri = [NSString stringWithFormat:@"?target=buckets"];
+    NSDictionary *params = nil;
+    [KSWebApiClient phpDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
         callback([result valueForKey:@"result"]);
     }];
 }

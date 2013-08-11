@@ -21,4 +21,7 @@
 + (void)getThesaurus:(void (^)(NSString *result))callback
            withQuery:(NSString *)query;
 + (void)getHeadline:(void (^)(NSMutableArray *result))callback;
+
+
++ (void)getBucket:(void (^)(NSDictionary *result))callback;
 @end

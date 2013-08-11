@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Mike Chen. All rights reserved.
 //
 
+#import "KSWebApiClient.h"
 #import "KSStates.h"
 #import "KSCardProxy.h"
 #import "KSBucketsViewController.h"
@@ -54,8 +55,10 @@
     [super viewDidAppear:animated];
     [KSStates setLastRootTab:KS_TAB_INDEX_LOOKDOWN];
 
-    [KSCardProxy delegate: self];
-    [KSCardProxy queryBuckets];
+    //[KSCardProxy delegate: self];
+    [KSWebApiClient getBucket:^(NSDictionary *result){
+        [self updateBucketSourceWithResult:result];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -243,7 +246,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 -(void) triggerRefreshControl:(UIRefreshControl *)refresh {
     [self updateRefreshControl:refresh withHint:@"Refreshing data..."];
 
-    [KSCardProxy queryBuckets];
+    //[KSCardProxy queryBuckets];
+    [KSWebApiClient getBucket:^(NSDictionary *result){
+        [self updateBucketSourceWithResult:result];
+    }];
 
     [self windupRefreshControl:refresh];
     [refresh endRefreshing];
