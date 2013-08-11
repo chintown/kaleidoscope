@@ -28,6 +28,17 @@ static NSString *kHeadline = @"headline";
     shared = [NSUserDefaults standardUserDefaults];
 }
 
++ (void)inspectCards {
+    de(@"bid");
+    deInt([self getBid]-1);
+    de(@"bucket");
+    de([self getBucketSourceAtIndex:[self getBid]-1]);
+    de(@"cid");
+    deInt([self getCid]);
+    de(@"cards");
+    de([self getCardSource]);
+}
+
 + (void) setHeadlineSource: (NSArray *) headlines {
     NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject: headlines];
     [shared setObject: (NSObject *) encoded
@@ -84,6 +95,20 @@ static NSString *kHeadline = @"headline";
 
     [KSStates setBucketSource:buckets];
 }
++ (void) updateLastCid:(int)cid {
+    NSString *key = [NSString stringWithFormat:@"%d", [self getBid]-1];
+    NSMutableDictionary *bucket = [[NSMutableDictionary alloc] initWithDictionary:[[self getBucketSource] valueForKey:key]];
+
+    [bucket setValue:[NSNumber numberWithInt:cid] forKey:@"lastCid"];
+    [KSStates setBucketSource:bucket atIndex:[self getBid]-1];
+}
++ (void) updateBucketSize {
+    NSString *key = [NSString stringWithFormat:@"%d", [self getBid]-1];
+    NSMutableDictionary *bucket = [[NSMutableDictionary alloc] initWithDictionary:[[self getBucketSource] valueForKey:key]];
+    int num = [(NSNumber *)[bucket valueForKey:@"num"] intValue];
+    [bucket setValue:[NSNumber numberWithInt:num-1] forKey:@"num"];
+    [KSStates setBucketSource:bucket atIndex:[self getBid]-1];
+}
 
 + (int) getBid {
     return [shared integerForKey: kBid];
@@ -114,6 +139,12 @@ static NSString *kHeadline = @"headline";
 + (KSCard *) getCardSourceAtIndex: (int) idx {
     NSString *key = [NSString stringWithFormat:@"%d", idx];
     return [[self getCardSource] valueForKey:key];
+}
++ (void) removeCardSourceAtIndex: (int) idx {
+    NSString *key = [NSString stringWithFormat:@"%d", idx];
+    NSMutableDictionary *cards = [[NSMutableDictionary alloc] initWithDictionary:[self getCardSource]];
+    [cards removeObjectForKey:key];
+    [KSStates setCardsSource:cards];
 }
 + (BOOL) isExsitingCardSourceAtIndex: (int) idx {
     NSString *key = [NSString stringWithFormat:@"%d", idx];
@@ -152,6 +183,18 @@ static NSString *kHeadline = @"headline";
     int resultCid = [KSStates getCidAmongLastRefWithOffset:offset];
     [KSStates setCid: resultCid];
     return resultCid;
+}
++ (int) nextCidAfteRemoveCid:(int)cid {
+    NSString *key = [NSString stringWithFormat:@"%d", [self getBid]-1];
+    NSMutableDictionary *bucket = [[NSMutableDictionary alloc] initWithDictionary:[[self getBucketSource] valueForKey:key]];
+    int num = [(NSNumber *)[bucket valueForKey:@"num"] intValue];
+    NSNumber *nextCid;
+    if (cid == num - 1) {
+        nextCid = 0;
+    } else {
+        nextCid = [[NSNumber alloc] initWithInt:cid];
+    }
+    return [nextCid intValue];
 }
 
 + (BOOL) isLowBoundInBucket {

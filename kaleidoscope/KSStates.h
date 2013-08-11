@@ -11,6 +11,8 @@
 
 @interface KSStates : NSObject
 
++ (void)inspectCards;
+
 + (void) setHeadlineSource: (NSDictionary *) headlines;
 + (NSArray *) getHeadlineSource;
 + (NSDictionary *) getHeadlineSourceAtIndex: (int) idx;
@@ -21,6 +23,8 @@
 + (void) setBucketSource: (NSDictionary *) buckets;
 + (void) setBucketSource: (NSDictionary *) bucket
                  atIndex: (int) idx;
++ (void) updateLastCid:(int)cid;
++ (void) updateBucketSize;
 
 + (int) getBid;
 + (void) setBid: (int) bid;
@@ -29,6 +33,7 @@
 + (NSDictionary *) initCardSource;
 + (NSDictionary *) getCardSource;
 + (KSCard *) getCardSourceAtIndex: (int) idx;
++ (void) removeCardSourceAtIndex: (int) idx;
 + (BOOL) isExsitingCardSourceAtIndex: (int) idx;
 + (void) setCardsSource: (NSDictionary *) cards;
 + (void) setCardSource: (KSCard *) card
@@ -38,6 +43,7 @@
 + (void) setCid: (int) cid;
 + (int) getCidAmongLastRefWithOffset: (int) offset;
 + (int) updateCidAmongLastRefWithOffset: (int) offset;
++ (int) nextCidAfteRemoveCid:(int)cid;
 
 + (BOOL) isLowBoundInBucket;
 + (BOOL) isUpBoundInBucket;
