@@ -15,9 +15,11 @@
 #import "AFHTTPClient.h"
 
 #define XHttpClient [KSHttpClient sharedClient]
+#define XHttpClient2 [KSHttpClient sharedClient2]
 
 @interface KSHttpClient : AFHTTPClient
 
 + (KSHttpClient *)sharedClient;
++ (KSHttpClient *)sharedClient2;
 
 @end

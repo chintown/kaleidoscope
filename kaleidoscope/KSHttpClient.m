@@ -11,16 +11,27 @@
 
 @implementation KSHttpClient
 
-static NSString * const rootWebApi = @"http://www.chintown.org:9000/";
+static NSString * const rootNodeApi = @"http://www.chintown.org:9000/";
+static NSString * const rootPhpApi = @"http://www.chintown.org/lookup/api.php";
 
 + (KSHttpClient *)sharedClient {
     static KSHttpClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[KSHttpClient alloc] initWithBaseURL:[NSURL URLWithString:rootWebApi]];
+        _sharedClient = [[KSHttpClient alloc] initWithBaseURL:[NSURL URLWithString:rootNodeApi]];
     });
 
     return _sharedClient;
+}
+
++ (KSHttpClient *)sharedClient2 {
+    static KSHttpClient *_sharedClient2 = nil;
+    static dispatch_once_t onceToken2;
+    dispatch_once(&onceToken2, ^{
+        _sharedClient2 = [[KSHttpClient alloc] initWithBaseURL:[NSURL URLWithString:rootPhpApi]];
+    });
+
+    return _sharedClient2;
 }
 
 - (id)initWithBaseURL:(NSURL *)url {
