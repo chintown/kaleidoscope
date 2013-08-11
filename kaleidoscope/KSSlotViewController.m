@@ -124,7 +124,7 @@
 #pragma mark - Scroll View's Data Source
 
 - (NSUInteger) numReusablePages {
-    return 3;
+    return 2;
 }
 - (CGSize) pageCGSize {
     CGRect screenRect = [[UIScreen mainScreen] bounds];

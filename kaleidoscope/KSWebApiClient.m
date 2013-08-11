@@ -70,6 +70,7 @@
         withQuery:(NSString *)query{
     NSString *uri = [NSString stringWithFormat:@"flickr/?query=%@", query];
     NSDictionary *params = nil;
+    NSLog(@"flickr %@", uri);
     [KSWebApiClient getDictionaryFromUri:uri withParams:params withCallback:^(NSMutableDictionary *result) {
         callback([result valueForKey:@"result"]);
     }];
