@@ -30,7 +30,9 @@
 @property (nonatomic, getter = isPaging) BOOL paging;
 @property (nonatomic, strong) IBOutlet id<CTPagedScrollViewDataSource> dataSource;
 
+- (void) initInternals;
 - (void) selfInit;
+- (void) updateVisibleBoundToPositionOfCurrentIndex;
 - (id) dequeueReusablePage;
 
 @end
