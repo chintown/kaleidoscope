@@ -69,7 +69,10 @@
 
 #pragma mark - Object Utils
 - (NSIndexPath *)fetchIndexPathFromCell:(UITableViewCell *) cell {
-    UITableView* table = (UITableView *)[cell superview];
+    id table = (UITableView *)[cell superview];
+    while (table && [table isKindOfClass:[UITableView class]] == NO) {
+        table = [(UITableView *)table superview];
+    }
     NSIndexPath* path = [table indexPathForCell:cell];
     return path;
 }

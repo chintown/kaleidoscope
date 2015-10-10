@@ -1,42 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zSI-ba-Lya">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zSI-ba-Lya">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Lookup View Controller - Look Up-->
+        <!--Navigation Controller - Look Up-->
+        <scene sceneID="yux-rn-MHp">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="HNE-Rk-PpQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Look Up" image="icon-search" id="1Sz-i8-Re3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TYz-yd-D2Q">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lEv-OE-PGz" kind="relationship" relationship="rootViewController" id="nzt-No-pr7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwE-Ed-q9q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11" y="-843"/>
+        </scene>
+        <!--Lookup View Controller-->
         <scene sceneID="Eb8-CS-i6Q">
             <objects>
                 <viewController id="lEv-OE-PGz" customClass="KSLookupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Dq-EW-mZU"/>
+                        <viewControllerLayoutGuide type="bottom" id="c0Y-od-40K"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JN9-T3-iE3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="blackOpaque" placeholder="lookup some word?" showsBookmarkButton="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vu8-E0-Gnd">
-                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="alphabet"/>
-                            </searchBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="073-JY-aqS">
+                                <rect key="frame" x="0.0" y="44" width="320" height="480"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="yjO-LP-4Xb">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="yjO-LP-4Xb">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <items/>
                             </toolbar>
+                            <searchBar contentMode="redraw" barStyle="black" placeholder="lookup some word?" showsBookmarkButton="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vu8-E0-Gnd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="alphabet"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="073-JY-aqS" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" type="default" id="Aak-Ib-3Au"/>
-                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" type="default" id="Jlb-BO-Yb5"/>
-                            <constraint firstItem="073-JY-aqS" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" type="default" id="SmI-sO-irx"/>
-                            <constraint firstItem="073-JY-aqS" firstAttribute="top" secondItem="vu8-E0-Gnd" secondAttribute="bottom" type="default" id="SpP-6M-OYh"/>
-                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="bottom" secondItem="JN9-T3-iE3" secondAttribute="bottom" type="default" id="eN0-j8-RON"/>
-                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="top" secondItem="073-JY-aqS" secondAttribute="bottom" type="default" id="f8n-1S-BZF"/>
-                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" type="default" id="hAV-Me-HlA"/>
-                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="top" secondItem="JN9-T3-iE3" secondAttribute="top" type="default" id="oG7-tK-FVX"/>
-                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" type="default" id="s1h-iu-npe"/>
-                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" type="default" id="sxe-GV-9b4"/>
+                            <constraint firstItem="073-JY-aqS" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" id="Aak-Ib-3Au"/>
+                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" id="Jlb-BO-Yb5"/>
+                            <constraint firstItem="073-JY-aqS" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" id="SmI-sO-irx"/>
+                            <constraint firstItem="073-JY-aqS" firstAttribute="bottom" secondItem="yjO-LP-4Xb" secondAttribute="top" id="aPr-hD-BAs"/>
+                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="bottom" secondItem="JN9-T3-iE3" secondAttribute="bottom" id="eN0-j8-RON"/>
+                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" id="hAV-Me-HlA"/>
+                            <constraint firstItem="vu8-E0-Gnd" firstAttribute="top" secondItem="JN9-T3-iE3" secondAttribute="top" id="oG7-tK-FVX"/>
+                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="trailing" secondItem="JN9-T3-iE3" secondAttribute="trailing" id="s1h-iu-npe"/>
+                            <constraint firstItem="073-JY-aqS" firstAttribute="top" secondItem="vu8-E0-Gnd" secondAttribute="bottom" id="sms-fD-rNV"/>
+                            <constraint firstItem="yjO-LP-4Xb" firstAttribute="leading" secondItem="JN9-T3-iE3" secondAttribute="leading" id="sxe-GV-9b4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Look Up" image="icon-search" id="mPg-mI-R8f"/>
+                    <navigationItem key="navigationItem" id="D3y-Ry-Kc0"/>
                     <connections>
                         <outlet property="searchBar" destination="vu8-E0-Gnd" id="d43-7Z-gqf"/>
                         <outlet property="searchDisplayController" destination="5Qa-Ud-ewo" id="rkx-tX-qWT"/>
@@ -54,25 +79,24 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-4" y="-799"/>
+            <point key="canvasLocation" x="365" y="-843"/>
         </scene>
         <!--Headline View Controller - Look Ahead-->
         <scene sceneID="X9B-NJ-n2M">
             <objects>
                 <tableViewController id="EKS-6c-cDK" customClass="KSHeadlineViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bx2-3q-XmM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bx2-3q-XmM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Yff-9R-0Y9">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yff-9R-0Y9" id="8qH-Fr-8Jt">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -87,9 +111,9 @@
             <objects>
                 <navigationController id="1K0-iH-0QJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Look Ahead" image="icon-eye" id="tcq-dq-0xl"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="VtX-ib-InW">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="VtX-ib-InW">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -105,35 +129,34 @@
         <scene sceneID="tCD-nw-zl7">
             <objects>
                 <tableViewController id="pBg-Ow-3c0" customClass="KSBucketsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K6K-HH-x2A">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K6K-HH-x2A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bucket cell" textLabel="lYZ-OM-ZLZ" detailTextLabel="XC1-x1-Aps" style="IBUITableViewCellStyleValue1" id="t0f-Lv-ua0">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t0f-Lv-ua0" id="xyT-Sw-02s">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lYZ-OM-ZLZ">
-                                            <rect key="frame" x="10" y="11" width="43" height="22"/>
+                                            <rect key="frame" x="15" y="11" width="43" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XC1-x1-Aps">
-                                            <rect key="frame" x="271" y="11" width="19" height="22"/>
+                                            <rect key="frame" x="266" y="11" width="19" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                             <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                                </tableViewCellContentView>
                                 <connections>
                                     <segue destination="1KS-ud-O3G" kind="push" id="km2-IY-JEb"/>
                                 </connections>
@@ -154,18 +177,24 @@
         <scene sceneID="GJ0-GN-bB5">
             <objects>
                 <viewController id="1KS-ud-O3G" customClass="KSSlotViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L2i-gJ-gk6"/>
+                        <viewControllerLayoutGuide type="bottom" id="cx7-iN-3iJ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RaC-Ca-h4t">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2CR-iZ-V0W" customClass="CTPagedScrollView"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2CR-iZ-V0W" customClass="CTPagedScrollView">
+                                <rect key="frame" x="0.0" y="22" width="320" height="523"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="leading" secondItem="RaC-Ca-h4t" secondAttribute="leading" type="default" id="AEj-a3-Ofu"/>
+                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="leading" secondItem="RaC-Ca-h4t" secondAttribute="leading" id="AEj-a3-Ofu"/>
                             <constraint firstAttribute="bottom" secondItem="2CR-iZ-V0W" secondAttribute="bottom" constant="23" id="HGM-Ec-gdL"/>
                             <constraint firstItem="2CR-iZ-V0W" firstAttribute="top" secondItem="RaC-Ca-h4t" secondAttribute="top" constant="22" id="d2g-kz-vqf"/>
-                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="trailing" secondItem="RaC-Ca-h4t" secondAttribute="trailing" type="default" id="hgb-Vx-uCL"/>
+                            <constraint firstItem="2CR-iZ-V0W" firstAttribute="trailing" secondItem="RaC-Ca-h4t" secondAttribute="trailing" id="hgb-Vx-uCL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="s0c-ec-GOT"/>
@@ -198,7 +227,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="CLe-bS-4io" kind="relationship" relationship="viewControllers" id="GQM-65-UlX"/>
-                        <segue destination="lEv-OE-PGz" kind="relationship" relationship="viewControllers" id="sFa-RP-4QA"/>
+                        <segue destination="HNE-Rk-PpQ" kind="relationship" relationship="viewControllers" id="9mr-eC-n1P"/>
                         <segue destination="1K0-iH-0QJ" kind="relationship" relationship="viewControllers" id="BPy-uA-2u5"/>
                     </connections>
                 </tabBarController>
@@ -212,9 +241,9 @@
                 <navigationController id="CLe-bS-4io" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Look Down" image="icon-inbox" id="S3L-Xk-aAC"/>
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="DrS-r9-Lpb">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="DrS-r9-Lpb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
